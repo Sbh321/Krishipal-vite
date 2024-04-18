@@ -1,0 +1,23 @@
+.intro {
+  background: hsla(151, 25%, 26%, 1);
+
+  background: linear-gradient(
+    45deg,
+    hsla(151, 25%, 26%, 1) 3%,
+    hsla(107, 41%, 52%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    45deg,
+    hsla(151, 25%, 26%, 1) 3%,
+    hsla(107, 41%, 52%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    45deg,
+    hsla(151, 25%, 26%, 1) 3%,
+    hsla(107, 41%, 52%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#325343", endColorstr="#6AB754", GradientType=1 );
+}
