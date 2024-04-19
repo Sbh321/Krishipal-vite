@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import CartCountBadge from "./CartCountBadge";
+import Cart from "./Cart";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFullNameOpen, setIsFullNameOpen] = useState(false);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -54,17 +62,17 @@ const Header = () => {
             </div>
 
             <div className="flex gap-5 items-center">
-              <div
-                className="relative cursor-pointer"
-                // onClick={() => setShowCart(true)}
-              >
+              <div className="relative cursor-pointer" onClick={toggleCart}>
                 <AiOutlineShoppingCart
                   size={25}
                   color="black"
                   style={{ marginTop: "3px" }}
                 />
-                {/* <CartCountBadge size="w-[25px] h-[25px]" /> */}
+                <CartCountBadge size="w-[25px] h-[25px]" />
               </div>
+
+              {isCartOpen && <Cart setShowCart={setIsCartOpen} />}
+
               <div className="hidden md:block gap-8">
                 <ul className="flex items-center">
                   <li className="relative group">
