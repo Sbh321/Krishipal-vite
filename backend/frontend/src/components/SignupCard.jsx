@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SignupCard = () => {
   return (
@@ -16,9 +17,12 @@ const SignupCard = () => {
               Signup to know more!
             </h1>
           </div>
-          <button className="tracking-[-0.50px] font-medium min-w-[155px] border-gray-50 border-2 border-solid text-gray-50 h-[49px] px-[35px] text-sm">
-            Signup
-          </button>
+          <Link to={"/register"}>
+            {" "}
+            <button className="tracking-[-0.50px] font-medium min-w-[155px] border-gray-50 border-2 border-solid text-gray-50 h-[49px] px-[35px] text-sm">
+              Signup
+            </button>
+          </Link>
         </div>
         <img
           src="images/farmer.png"

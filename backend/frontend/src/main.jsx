@@ -13,6 +13,7 @@ import HomeScreen from "./screens/HomeScreen.jsx";
 import LoginScreen from "./screens/LoginScreen.jsx";
 import RegisterScreen from "./screens/RegisterScreen.jsx";
 import ShopScreen from "./screens/ShopScreen.jsx";
+import ProductsScreen from "./screens/ProductsScreen.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/shop" element={<ShopScreen />} />
+        <Route path="/shop/products" element={<ProductsScreen />} />
       </Route>
     </>
   )
