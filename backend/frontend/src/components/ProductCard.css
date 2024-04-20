@@ -1,0 +1,27 @@
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(25deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-swing {
+  animation: swing 0.3s ease;
+}

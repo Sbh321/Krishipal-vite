@@ -1,7 +1,18 @@
 import asyncHandler from "../middleware/asyncHandler.js";
 import Product from "../models/productModel.js";
 
-// @desc    Fetch all products
+// @desc    Fetch latest products
+// @route   GET /api/products/latest
+// @access  Public
+const getLatestProducts = asyncHandler(async (req, res) => {
+  const products = await Product.find({})
+    .sort({ createdAt: -1 }) // Sort in descending order by createdAt field
+    .limit(10); // Limit the result to 10 products
+
+  res.json(products);
+});
+
+// @desc    Fetch all products (pages, keyword)
 // @route   GET /api/products
 // @access  Public
 const getProducts = asyncHandler(async (req, res) => {
@@ -147,6 +158,7 @@ const getTopProducts = asyncHandler(async (req, res) => {
 });
 
 export {
+  getLatestProducts,
   getProducts,
   getProductById,
   createProduct,

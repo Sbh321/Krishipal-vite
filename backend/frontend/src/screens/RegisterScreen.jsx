@@ -1,7 +1,52 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useRegisterMutation } from "../slices/usersApiSlice";
+import { setCredentials } from "../slices/authSlice";
+import { toast } from "react-hot-toast";
+// import loader
 
 const RegisterScreen = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [register, { isLoading }] = useRegisterMutation();
+
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const { search } = useLocation();
+  const sp = new URLSearchParams(search);
+  const redirect = sp.get("redirect") || "/";
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [userInfo, redirect, navigate]);
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    } else {
+      try {
+        const res = await register({ name, email, password }).unwrap();
+        dispatch(setCredentials({ ...res }));
+        navigate(redirect);
+      } catch (error) {
+        toast.error(error?.data?.message || error.error);
+        console.log("Error: ", error);
+      }
+    }
+  };
+
   return (
     <div className="flex h-screen">
       <img
@@ -20,32 +65,49 @@ const RegisterScreen = () => {
             <h2>Welcome!</h2>
           </div>
 
-          <form action="" className="mt-8 w-[80%] lg:w-96 mx-auto space-y-4">
+          <form
+            onSubmit={submitHandler}
+            className="mt-8 w-[80%] lg:w-96 mx-auto space-y-4"
+          >
             <h4>Register to create an account</h4>
             <input
               type="text"
               placeholder="Full Name"
               className="border w-full px-4 py-2"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
             <input
               type="email"
               placeholder="Email"
               className="border w-full px-4 py-2"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="password"
               placeholder="Password"
               className="border w-full px-4 py-2"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <input
               type="password"
               placeholder="Confirm Password"
               className="border w-full px-4 py-2"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
 
-            <button className="w-full text-white rounded bg-green-600 py-2 font-bold hover:bg-green-500">
+            <button
+              disabled={isLoading}
+              type="submit"
+              className="w-full text-white rounded bg-green-600 py-2 font-bold hover:bg-green-500"
+            >
               Register
             </button>
+
+            {/* {isLoading && <Loader />} */}
           </form>
         </div>
         <div className="text-center space-y-4 mt-4">

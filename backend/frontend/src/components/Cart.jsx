@@ -1,5 +1,6 @@
 import { RxCross1 } from "react-icons/rx";
 import CartProduct from "./CartProduct";
+import { Link } from "react-router-dom";
 
 const Cart = ({ setShowCart }) => {
   const product = [
@@ -48,12 +49,20 @@ const Cart = ({ setShowCart }) => {
           ))}
         </div>
 
-        <button className="bg-accent text-white text-center w-full rounded-3xl py-2 mb-4 hover:bg-accentDark mt-4">
-          View Cart
-        </button>
-        <button className="bg-accent text-white text-center w-full rounded-3xl py-2 hover:bg-accentDark">
-          CheckOut
-        </button>
+        <Link to={"/cart"}>
+          <button
+            className="bg-accent text-white text-center w-full rounded-3xl py-2 mb-4 hover:bg-accentDark mt-4"
+            onClick={() => setShowCart(false)}
+          >
+            View Cart Details
+          </button>
+          <button
+            className="bg-accent text-white text-center w-full rounded-3xl py-2 hover:bg-accentDark"
+            onClick={() => setShowCart(false)}
+          >
+            CheckOut
+          </button>
+        </Link>
       </div>
     </div>
   );

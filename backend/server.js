@@ -10,9 +10,12 @@ import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoute.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 
+import cors from "cors";
+
 connectDB();
 
 const app = express();
+app.use(cors());
 const port = process.env.PORT || 5000;
 
 //body parser middleware

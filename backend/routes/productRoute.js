@@ -1,6 +1,7 @@
 import express from "express";
 const router = express.Router();
 import {
+  getLatestProducts,
   getProducts,
   getProductById,
   createProduct,
@@ -12,6 +13,7 @@ import {
 import { protect, admin } from "../middleware/authMiddleware.js";
 import checkObjectId from "../middleware/checkObjectId.js";
 
+router.route("/latest").get(getLatestProducts);
 router.route("/").get(getProducts).post(protect, admin, createProduct);
 router.get("/top", getTopProducts);
 router

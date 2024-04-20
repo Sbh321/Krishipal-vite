@@ -1,4 +1,4 @@
-import ProductCard from "./ProductCard";
+import ProductCardSample from "./ProductCardSample";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 
@@ -61,7 +61,7 @@ const FeatureSectionSeeds = () => {
           />
         </div>
         {data.map((el) => (
-          <ProductCard
+          <ProductCardSample
             key={el.id}
             img={el.img}
             name={el.name}

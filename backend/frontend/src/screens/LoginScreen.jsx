@@ -1,7 +1,44 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useLoginMutation } from "../slices/usersApiSlice";
+import { setCredentials } from "../slices/authSlice";
+import { toast } from "react-hot-toast";
 
 const LoginScreen = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [login, { isLoading }] = useLoginMutation();
+
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const { search } = useLocation();
+  const sp = new URLSearchParams(search);
+  const redirect = sp.get("redirect") || "/";
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [userInfo, redirect, navigate]);
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await login({ email, password }).unwrap();
+      dispatch(setCredentials({ ...res }));
+      console.log("here");
+      navigate(redirect);
+      toast.success("Login successful!");
+    } catch (error) {
+      toast.error(error?.data?.message || error.error);
+    }
+  };
+
   return (
     <div className="flex h-screen">
       <img
@@ -22,25 +59,38 @@ const LoginScreen = () => {
 
           {/* login form */}
 
-          <form action="" className="mt-8 w-[80%] lg:w-96 mx-auto space-y-4">
+          <form
+            onSubmit={submitHandler}
+            className="mt-8 w-[80%] lg:w-96 mx-auto space-y-4"
+          >
             <h4>Login to manage your account</h4>
             <input
               type="email"
               placeholder="Email"
               className="border w-full px-4 py-2"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="password"
               placeholder="Password"
               className="border w-full px-4 py-2"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <div className="text-blue-600 cursor-pointer hover:text-blue-400">
               Forgot your password?
             </div>
 
-            <button className="w-full text-white rounded bg-green-600 py-2 font-bold hover:bg-green-500">
+            <button
+              disabled={isLoading}
+              type="submit"
+              className="w-full text-white rounded bg-green-600 py-2 font-bold hover:bg-green-500"
+            >
               Login
             </button>
+
+            {/* {isLoading && <Loader />} */}
           </form>
         </div>
         <div className="text-center space-y-4 mt-4">
