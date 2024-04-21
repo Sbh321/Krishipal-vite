@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLoginMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-hot-toast";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -70,6 +71,7 @@ const LoginScreen = () => {
               className="border w-full px-4 py-2"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
             <input
               type="password"
@@ -77,6 +79,7 @@ const LoginScreen = () => {
               className="border w-full px-4 py-2"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
             <div className="text-blue-600 cursor-pointer hover:text-blue-400">
               Forgot your password?
@@ -90,7 +93,12 @@ const LoginScreen = () => {
               Login
             </button>
 
-            {/* {isLoading && <Loader />} */}
+            {isLoading && (
+              <div className="flex items-center justify-center gap-2">
+                <CircularProgress size={64} style={{ color: "#718096" }} />
+                <span className="text-gray-600">Loading ...</span>
+              </div>
+            )}
           </form>
         </div>
         <div className="text-center space-y-4 mt-4">

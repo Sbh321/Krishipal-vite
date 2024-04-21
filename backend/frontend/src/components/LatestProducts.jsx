@@ -2,8 +2,8 @@ import ProductCard from "./ProductCard";
 import { Link, useParams } from "react-router-dom";
 import { useGetLatestProductQuery } from "../slices/productsApiSlice.js";
 
-// import Loader from "../components/Loader.jsx";
-// import Message from "../components/Message.jsx";
+import CircularProgress from "@mui/material/CircularProgress";
+import Alert from "@mui/material/Alert";
 
 const LatestProducts = () => {
   const { data: products, isLoading, error } = useGetLatestProductQuery();
@@ -12,9 +12,12 @@ const LatestProducts = () => {
   return (
     <div className="container pt-16">
       {isLoading ? (
-        <div>Loading...</div>
+        <div className="flex items-center justify-center gap-2">
+          <CircularProgress size={64} style={{ color: "#718096" }} />
+          <span className="text-gray-600">Loading ...</span>
+        </div>
       ) : error ? (
-        <div>Error</div>
+        <Alert severity="error">Error! Please Reload the page</Alert>
       ) : (
         <>
           <div className="lg:flex justify-between items-center">

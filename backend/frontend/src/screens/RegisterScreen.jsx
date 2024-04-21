@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRegisterMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-hot-toast";
-// import loader
+import CircularProgress from "@mui/material/CircularProgress";
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
@@ -76,6 +76,7 @@ const RegisterScreen = () => {
               className="border w-full px-4 py-2"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
             />
             <input
               type="email"
@@ -83,6 +84,7 @@ const RegisterScreen = () => {
               className="border w-full px-4 py-2"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
             <input
               type="password"
@@ -90,6 +92,7 @@ const RegisterScreen = () => {
               className="border w-full px-4 py-2"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
             <input
               type="password"
@@ -97,6 +100,7 @@ const RegisterScreen = () => {
               className="border w-full px-4 py-2"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              required
             />
 
             <button
@@ -107,7 +111,12 @@ const RegisterScreen = () => {
               Register
             </button>
 
-            {/* {isLoading && <Loader />} */}
+            {isLoading && (
+              <div className="flex items-center justify-center gap-2">
+                <CircularProgress size={64} style={{ color: "#718096" }} />
+                <span className="text-gray-600">Loading ...</span>
+              </div>
+            )}
           </form>
         </div>
         <div className="text-center space-y-4 mt-4">
