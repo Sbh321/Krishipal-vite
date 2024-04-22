@@ -11,14 +11,17 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="border border-gray-200 hover:border-gray-300 hover:scale-105 transition-transform rounded-lg relative">
-      <img
-        // src={product.image}
-        // src="/uploads\image-1713608103969.jpeg"
-        // src="http://localhost:8000/uploads\image-1713608103969.jpeg"
-        src={`http://localhost:8000${product.image}`}
-        alt="img"
-        className="rounded-lg cursor-pointer"
-      />
+      <Link to={`/product/${product._id}`}>
+        <img
+          // src={product.image}
+          // src="/uploads\image-1713608103969.jpeg"
+          // src="http://localhost:8000/uploads\image-1713608103969.jpeg"
+          src={`http://localhost:8000${product.image}`}
+          alt="img"
+          className="rounded-lg cursor-pointer"
+        />
+      </Link>
+
       <div className="space-y-2 relative p-4">
         <div className="text-yellow-400 flex gap-[2px] text-[20px]">
           <Rating
@@ -26,7 +29,10 @@ const ProductCard = ({ product }) => {
             text={`${product.numReviews} reviews`}
           />
         </div>
-        <h3 className="font-medium">{product.name}</h3>
+
+        <Link to={`/product/${product._id}`}>
+          <h3 className="font-medium hover:underline">{product.name}</h3>
+        </Link>
 
         <h3 className="text-2xl font-medium text-red-600">
           Rs {product.price}

@@ -19,19 +19,19 @@ const LatestProducts = () => {
       ) : error ? (
         <Alert severity="error">Error! Please Reload the page</Alert>
       ) : (
-        <>
+        <div className="px-5">
           <div className="lg:flex justify-between items-center">
             <div>
               <h3 className="font-medium text-2xl">Latest Products</h3>
               <p className="text-gray-600 mt-2">Buy our latest product</p>
             </div>
           </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 pt-8 gap-2">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 pt-8 gap-4">
             {products.map((product) => (
               <ProductCard product={product} key={product._id} />
             ))}
           </div>
-        </>
+        </div>
       )}
     </div>
   );
