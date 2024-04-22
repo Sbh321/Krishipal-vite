@@ -107,14 +107,22 @@ const Header = () => {
   }, []);
 
   return (
-    <div className=" border-b border-gray-300">
+    <div className="border-b border-gray-300">
       <nav className="bg-white md:container">
         <div className="w-[98%] mx-auto">
           <div className="flex justify-between h-16">
             <div className="flex">
               <div className=" flex items-center">
                 <span className=" text-green-700 font-medium text-3xl text-decoration-none">
-                  <Link to={"/"}>Krishipal</Link>
+                  <Link to={"/"}>
+                    <div className="w-[60px]">
+                      <img
+                        src="logo.png"
+                        alt="logo"
+                        className="w-full ml-3 md:ml-0"
+                      />
+                    </div>
+                  </Link>
                 </span>
               </div>
             </div>
@@ -133,11 +141,7 @@ const Header = () => {
                 <a href="#" className=" hover:text-gray-500 px-3 py-2">
                   Blogs
                 </a>
-                <a
-                  href="#"
-                  className=" hover:text-gray-500 px-3 py-2"
-                  onClick={"haha"}
-                >
+                <a href="#" className=" hover:text-gray-500 px-3 py-2">
                   Contact
                 </a>
               </div>
@@ -150,7 +154,12 @@ const Header = () => {
                   color="black"
                   style={{ marginTop: "3px" }}
                 />
-                <CartCountBadge size="w-[25px] h-[25px]" />
+                {cartItems.length > 0 && (
+                  <CartCountBadge
+                    size="w-[25px] h-[25px]"
+                    cartItems={cartItems}
+                  />
+                )}
               </div>
 
               {isCartOpen && <Cart setShowCart={setIsCartOpen} />}
