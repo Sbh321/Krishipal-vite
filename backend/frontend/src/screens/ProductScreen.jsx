@@ -66,7 +66,7 @@ const ProductScreen = () => {
         </Link>
 
         {userInfo?.isAdmin && (
-          <div className="flex justify-end w-full ">
+          <div className="flex justify-end w-full">
             <div className="flex gap-3">
               <button className="text-white font-medium lg:w-[100px] lg:h-[40px] w-[60px] h-[30px] bg-accent border hover:border-slate-600 hover:border-2 hover:bg-white transition-all hover:text-slate-600 rounded-l-full">
                 Edit
@@ -165,7 +165,6 @@ const ProductScreen = () => {
                 <div className="py-2 px-4">
                   <button
                     class="bg-accent hover:bg-accentDark text-white px-4 py-2 mt-2 rounded cursor-pointer"
-                    type="button"
                     onClick={addToCartHandler}
                   >
                     Add to Cart
