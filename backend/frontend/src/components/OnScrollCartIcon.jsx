@@ -20,7 +20,6 @@ const OnScrollCartIcon = () => {
 
   // Event listener for scrolling
   const handleScroll = () => {
-    console.log("Scrolling...");
     if (window.scrollY > 100) {
       // Change 200 to the desired scroll position
       setShowCart(true);
@@ -31,7 +30,6 @@ const OnScrollCartIcon = () => {
 
   // Add scroll event listener when component mounts
   useEffect(() => {
-    console.log("showCart:", showCart);
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);

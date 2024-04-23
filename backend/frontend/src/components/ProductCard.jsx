@@ -13,7 +13,6 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
 
   const addToCartHandler = () => {
-    console.log("haha");
     if (product.countInStock === 0) {
       toast.error("Product out of stock");
     } else {

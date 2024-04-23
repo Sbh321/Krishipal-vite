@@ -43,7 +43,10 @@ const Cart = ({ setShowCart }) => {
         ) : (
           <div className="mt-6">
             {cartItems?.map((el) => (
-              <div className="flex justify-between items-center my-4">
+              <div
+                key={el._id}
+                className="flex justify-between items-center my-4"
+              >
                 <div className="flex items-center gap-4">
                   <img
                     src={`http://localhost:8000${el.image}`}
