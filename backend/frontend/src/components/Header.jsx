@@ -22,8 +22,8 @@ const Header = () => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
-      navigate("/login");
       dispatch(resetCart());
+      navigate("/login");
       console.log("Logged out");
     } catch (error) {
       console.log(error);
@@ -171,7 +171,7 @@ const Header = () => {
                         className=" hover:text-gray-500 px-3 py-2 select-none cursor-pointer"
                         onClick={toggleFullNameDropdown}
                       >
-                        Full Name
+                        {userInfo.name}
                       </p>
 
                       {/* Submenu for Full Name */}

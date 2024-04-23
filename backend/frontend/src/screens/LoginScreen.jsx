@@ -32,7 +32,6 @@ const LoginScreen = () => {
     try {
       const res = await login({ email, password }).unwrap();
       dispatch(setCredentials({ ...res }));
-      console.log("here");
       navigate(redirect);
       toast.success("Login successful!");
     } catch (error) {

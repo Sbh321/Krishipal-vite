@@ -15,7 +15,14 @@ import cors from "cors";
 connectDB();
 
 const app = express();
-app.use(cors());
+
+app.use(
+  cors({
+    origin: true, // Allow requests from all origins
+    credentials: true, // Allows cookies to be sent in cross-origin requests
+  })
+);
+
 const port = process.env.PORT || 5000;
 
 //body parser middleware
