@@ -21,7 +21,7 @@ const OnScrollCartIcon = () => {
   // Event listener for scrolling
   const handleScroll = () => {
     if (window.scrollY > 100) {
-      // Change 200 to the desired scroll position
+      //Desired scroll position
       setShowCart(true);
     } else {
       setShowCart(false);
@@ -37,31 +37,34 @@ const OnScrollCartIcon = () => {
   }, [showCart]);
 
   return (
-    <div className="cart sticky top-3 z-50">
-      {cartItems.length > 0 && showCart && (
-        <div className="flex justify-end cart sticky top-3 z-50 m-4">
-          <div
-            className="cursor-pointer bg-accent inline-block min-w-min min-h-min p-3 rounded-full"
-            onClick={toggleCart}
-          >
-            <div className="relative">
-              <AiOutlineShoppingCart
-                size={35}
-                color="white"
-                style={{ marginTop: "3px" }}
-              />
+    <>
+      {!isCartOpen && (
+        <div className="cart sticky top-3 z-50">
+          {cartItems.length > 0 && showCart && (
+            <div className="flex justify-end cart sticky top-3 z-50 m-4">
+              <div
+                className="cursor-pointer bg-accent inline-block min-w-min min-h-min p-3 rounded-full"
+                onClick={toggleCart}
+              >
+                <div className="relative">
+                  <AiOutlineShoppingCart
+                    size={35}
+                    color="white"
+                    style={{ marginTop: "3px" }}
+                  />
 
-              <CartCountBadge
-                size="w-[25px] h-[25px] absolute"
-                cartItems={cartItems}
-              />
+                  <CartCountBadge
+                    size="w-[25px] h-[25px] absolute"
+                    cartItems={cartItems}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
-
       {isCartOpen && <Cart setShowCart={setIsCartOpen} />}
-    </div>
+    </>
   );
 };
 

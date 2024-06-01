@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
 import { resetCart } from "../slices/cartSlice";
+import OnScrollCartIcon from "./OnScrollCartIcon";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -161,8 +162,8 @@ const Header = () => {
                   />
                 )}
               </div>
-
               {isCartOpen && <Cart setShowCart={setIsCartOpen} />}
+
               {userInfo ? (
                 <div className="hidden md:block gap-8" ref={subMenuRef}>
                   <ul className="flex items-center">

@@ -1,6 +1,10 @@
 import dotenv from "dotenv";
 dotenv.config();
-const { PAYPAL_CLIENT_ID, PAYPAL_APP_SECRET, PAYPAL_API_URL } = process.env;
+// const { PAYPAL_CLIENT_ID, PAYPAL_APP_SECRET, PAYPAL_API_URL } = process.env;
+
+let PAYPAL_CLIENT_ID = `ASB7P9wKwSonyjNvCWwLEyzdZu0iMQmvL5jrTainB267pCWUwqqN6Im1tOb_LtJIxbi3nPeVj2bFPzvu`;
+let PAYPAL_APP_SECRET = `EKxz6wlpm8gDu-hcgUumERyhQWymA_jytSsn11nWymU2JGqNMdZATt_Vvp_aFbS7ZiaMZBDUpNREk7YZ`;
+let PAYPAL_API_URL = `https://api-m.sandbox.paypal.com`;
 
 /**
  * Fetches an access token from the PayPal API.

@@ -1,5 +1,5 @@
 import { RxCross1 } from "react-icons/rx";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../slices/cartSlice";
 import Alert from "@mui/material/Alert";
@@ -25,7 +25,7 @@ const Cart = ({ setShowCart }) => {
       onClick={() => setShowCart(false)}
     >
       <div
-        className="max-w-[400px] w-full h-full bg-white absolute right-0 top-0 p-6"
+        className="max-w-[400px] w-full h-full bg-white absolute right-0 top-0 p-6 "
         onClick={(e) => e.stopPropagation()}
       >
         <RxCross1
@@ -41,7 +41,7 @@ const Cart = ({ setShowCart }) => {
             Cart is empty.
           </Alert>
         ) : (
-          <div className="mt-6">
+          <div className="mt-6 max-h-[300px] overflow-y-auto">
             {cartItems?.map((el) => (
               <div
                 key={el._id}
