@@ -119,7 +119,7 @@ const Header = () => {
                     <div className="w-[60px]">
                       <img
                         src="logo.png"
-                        alt="logo"
+                        alt="Krishipal"
                         className="w-full ml-3 md:ml-0"
                       />
                     </div>
@@ -208,9 +208,7 @@ const Header = () => {
                         {isAdminOpen && (
                           <ul className="absolute rounded bg-white shadow-md py-2 md:px-4 px-20">
                             <li className="my-1">
-                              <a className="hover:text-gray-500" href="">
-                                Users
-                              </a>
+                              <Link to={"/admin/userlist"}>Users</Link>
                             </li>
                             <li>
                               <a className="hover:text-gray-500" href="">
@@ -224,11 +222,11 @@ const Header = () => {
                   </ul>
                 </div>
               ) : (
-                <div>
+                <Link to={"/login"}>
                   <button className="lg:bg-green-600 lg:hover:text-white lg:text-white lg:px-5 lg:py-2 lg:rounded lg:hover:bg-green-500 lg:text-[16px] text-[16px] text-green-600 hover:text-green-500 md:bg-green-600 md:hover:text-white md:text-white md:px-5 md:py-2 md:rounded md:hover:bg-green-500 md:text-[16px">
-                    <Link to={"/login"}>Sign in</Link>
+                    Sign in
                   </button>
-                </div>
+                </Link>
               )}
 
               <div className="md:hidden">
@@ -340,14 +338,10 @@ const Header = () => {
                   {/* Submenu for Admin */}
                   {isAdminOpenMob && (
                     <ul className=" rounded bg-white shadow-md py-2 px-3 mt-1 w-36">
-                      <li>
-                        <a
-                          href="#"
-                          className="hover:text-gray-500 block px-3 py-2"
-                        >
-                          Users
-                        </a>
+                      <li className="my-1">
+                        <Link to={"/admin/userlist"}>Users</Link>
                       </li>
+
                       <li>
                         <a
                           href="#"

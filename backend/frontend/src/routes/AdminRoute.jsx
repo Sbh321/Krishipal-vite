@@ -1,18 +1,17 @@
-// import { Outlet, Navigate } from "react-router-dom";
-// import { useSelector } from "react-redux";
-// import Header from "./Header";
+import { Outlet, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Header from "../components/Header";
 
-// const AdminRoute = () => {
-//   const { userInfo } = useSelector((state) => state.auth);
+const AdminRoute = () => {
+  const { userInfo } = useSelector((state) => state.auth);
 
-//   return userInfo && userInfo.isAdmin ? (
-//     <>
-//       <Header />
-//       <Outlet />
-//     </>
-//   ) : (
-//     <Navigate to="/login" replace />
-//   );
-// };
+  return userInfo && userInfo.isAdmin ? (
+    <>
+      <Outlet />
+    </>
+  ) : (
+    <Navigate to="/login" replace />
+  );
+};
 
-// export default AdminRoute;
+export default AdminRoute;
