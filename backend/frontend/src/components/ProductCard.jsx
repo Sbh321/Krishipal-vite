@@ -59,7 +59,7 @@ const ProductCard = ({ product }) => {
               }`}
               onClick={addToCartHandler}
             >
-              <AiOutlineShopping className="icon text-[28px]" />
+              <AiOutlineShopping className="icon" />
             </button>
           </div>
         )}
