@@ -27,10 +27,17 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen.jsx";
 import OrderScreen from "./screens/OrderScreen.jsx";
 
 import UserListScreen from "./screens/admin/UserListScreen.jsx";
+import ProductListScreen from "./screens/admin/ProductListScreen.jsx";
+import OrderListScreen from "./screens/admin/OrderListScreen.jsx";
+
+import AdminHome from "./dashboard/components/AdminHome.jsx";
+import UserList from "./dashboard/components/UserList.jsx";
+import ProductList from "./dashboard/components/ProductList.jsx";
+import OrderList from "./dashboard/components/OrderList.jsx";
 
 import PrivateRoute from "./routes/PrivateRoute.jsx";
 import AdminRoute from "./routes/AdminRoute.jsx";
-// import DashboardRoute from "./routes/DashboardRoute.jsx";
+import DashboardRoute from "./routes/DashboardRoute.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -53,19 +60,26 @@ const router = createBrowserRouter(
         </Route>
 
         <Route path="" element={<AdminRoute />}>
-          {/* <Route path="/admin/orderlist" element={<OrderListScreen />} />
+          <Route path="/admin/orderlist" element={<OrderListScreen />} />
           <Route path="/admin/productlist" element={<ProductListScreen />} />
           <Route
             path="/admin/productlist/:pageNumber"
             element={<ProductListScreen />}
           />
-          <Route path="/admin/addproduct" element={<AddProductScreen />} />
-          <Route
+          {/* <Route path="/admin/addproduct" element={<AddProductScreen />} /> */}
+          {/* <Route
             path="/admin/product/:id/edit"
             element={<ProductEditScreen />}
           /> */}
           <Route path="/admin/userlist" element={<UserListScreen />} />
           {/* <Route path="/admin/user/:id/edit" element={<UserEditScreen />} /> */}
+        </Route>
+
+        <Route path="" element={<DashboardRoute />}>
+          <Route path="/admin/dashboard" element={<AdminHome />} />
+          <Route path="/admin/dashboard/users" element={<UserList />} />
+          <Route path="/admin/dashboard/products" element={<ProductList />} />
+          <Route path="/admin/dashboard/orders" element={<OrderList />} />
         </Route>
       </Route>
     </>

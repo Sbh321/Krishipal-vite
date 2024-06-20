@@ -1,31 +1,49 @@
-// import Message from "../../components/Message";
-// import Loader from "../../components/Loader";
-// import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
+import { useParams } from "react-router-dom";
 import {
-  useGetUsersQuery,
-  useDeleteUserMutation,
-} from "../../slices/usersApiSlice";
+  useGetProductsQuery,
+  useCreateProductMutation,
+  useDeleteProductMutation,
+} from "../../slices/productsApiSlice";
+import Paginate from "../../components/Paginate";
 
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 
 const UserListScreen = () => {
-  const { data: users, refetch, error, isLoading } = useGetUsersQuery();
+  const { pageNumber } = useParams();
 
-  const [deleteUser, { isLoading: loadingDelete }] = useDeleteUserMutation();
+  const { data, isLoading, error, refetch } = useGetProductsQuery({
+    pageNumber,
+  });
+
+  const [createProduct, { isLoading: loadingCreate }] =
+    useCreateProductMutation();
+
+  const [deleteProduct, { isLoading: loadingDelete }] =
+    useDeleteProductMutation();
 
   const deleteHandler = async (id) => {
     if (window.confirm("Are you sure?")) {
       try {
-        await deleteUser(id);
-        toast.success("User deleted successfully");
+        await deleteProduct(id);
         refetch();
       } catch (err) {
-        toast.error(err?.data?.message || err?.error);
+        toast.error(err?.data?.message || err.error);
+      }
+    }
+  };
+
+  const createProductHandler = async () => {
+    if (window.confirm("Are you sure?")) {
+      try {
+        await createProduct();
+        refetch();
+      } catch (err) {
+        toast.error(err?.data?.message || err.error);
       }
     }
   };
@@ -55,10 +73,13 @@ const UserListScreen = () => {
                     NAME
                   </th>
                   <th className="py-2 px-4 border-b text-left text-green-700 text-sm sm:text-base">
-                    Email
+                    Price
                   </th>
                   <th className="py-2 px-4 border-b text-left text-green-700 text-sm sm:text-base">
-                    ADMIN
+                    Category
+                  </th>
+                  <th className="py-2 px-4 border-b text-left text-green-700 text-sm sm:text-base">
+                    Brand
                   </th>
                   <th className="py-2 px-4 border-b text-left text-green-700 text-sm sm:text-base">
                     Action
@@ -66,28 +87,34 @@ const UserListScreen = () => {
                 </tr>
               </thead>
               <tbody>
-                {users.map((user) => (
-                  <tr key={user._id} className="hover:bg-gray-50">
+                {data.products.map((product) => (
+                  <tr key={product._id} className="hover:bg-gray-50">
                     <td className="py-2 px-4 border-b text-sm sm:text-base">
-                      {user._id}
+                      {product._id}
                     </td>
                     <td className="py-2 px-4 border-b text-sm sm:text-base">
-                      {user.name}
+                      {product.name}
                     </td>
                     <td className="py-2 px-4 border-b text-sm sm:text-base">
-                      <a href={`mailto:${user.email}`}>{user.email}</a>
+                      Rs. {product.price}
                     </td>
                     <td className="py-2 px-4 border-b text-sm sm:text-base">
-                      {user.isAdmin ? <p>Y</p> : <p>N</p>}
+                      {product.category}
+                    </td>
+                    <td className="py-2 px-4 border-b text-sm sm:text-base">
+                      {product.brand}
                     </td>
                     <td className="py-2 px-4 border-b text-sm sm:text-base flex items-center space-x-4">
                       <Link
-                        to={`/admin/user/${user._id}/edit`}
+                        to={`/admin/product/${product._id}/edit`}
                         className="text-green-700 text-lg hover:shadow-lg hover:text-green-900"
                       >
                         <FaEdit />
                       </Link>
-                      <FaRegTrashAlt className="text-green-700 text-lg cursor-pointer hover:shadow-lg hover:text-green-900" />
+                      <FaRegTrashAlt
+                        className="text-green-700 text-lg cursor-pointer hover:shadow-lg hover:text-green-900"
+                        onClick={() => deleteHandler(product._id)}
+                      />
                     </td>
                   </tr>
                 ))}
@@ -96,6 +123,7 @@ const UserListScreen = () => {
           </div>
         </div>
       )}
+      <Paginate pages={data?.pages} page={data?.page} isAdmin={true} />
     </div>
   );
 };

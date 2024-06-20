@@ -210,10 +210,14 @@ const Header = () => {
                             <li className="my-1">
                               <Link to={"/admin/userlist"}>Users</Link>
                             </li>
+                            <li className="my-1">
+                              <Link to={"/admin/productlist"}>Products</Link>
+                            </li>
+                            <li className="my-1">
+                              <Link to={"/admin/orderlist"}>Orders</Link>
+                            </li>
                             <li>
-                              <a className="hover:text-gray-500" href="">
-                                Dashboard
-                              </a>
+                              <Link to={"/admin/dashboard"}>Dashboard</Link>
                             </li>
                           </ul>
                         )}
