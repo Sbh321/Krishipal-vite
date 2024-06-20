@@ -69,37 +69,37 @@ function AdminHome() {
   return (
     <main className="main-container">
       <div className="main-title">
-        <h3>DASHBOARD</h3>
+        <h3 className="text-3xl">DASHBOARD</h3>
       </div>
 
       <div className="main-cards">
         <div className="aCard">
           <div className="card-inner">
-            <h3>PRODUCTS</h3>
+            <h3 className="text-2xl">PRODUCTS</h3>
             <BsFillArchiveFill className="card_icon" />
           </div>
-          <h1>300</h1>
+          <h1 className="text-2xl">300</h1>
         </div>
         <div className="aCard">
           <div className="card-inner">
-            <h3>CATEGORIES</h3>
+            <h3 className="text-2xl">CATEGORIES</h3>
             <BsFillGrid3X3GapFill className="card_icon" />
           </div>
-          <h1>12</h1>
+          <h1 className="text-2xl">12</h1>
         </div>
         <div className="aCard">
           <div className="card-inner">
-            <h3>CUSTOMERS</h3>
+            <h3 className="text-2xl">CUSTOMERS</h3>
             <BsPeopleFill className="card_icon" />
           </div>
-          <h1>33</h1>
+          <h1 className="text-2xl">33</h1>
         </div>
         <div className="aCard">
           <div className="card-inner">
-            <h3>ALERTS</h3>
+            <h3 className="text-2xl">ALERTS</h3>
             <BsFillBellFill className="card_icon" />
           </div>
-          <h1>42</h1>
+          <h1 className="text-2xl">42</h1>
         </div>
       </div>
 

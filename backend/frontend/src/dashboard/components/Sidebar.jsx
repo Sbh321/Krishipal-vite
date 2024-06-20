@@ -33,29 +33,29 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
       <ul style={{ marginTop: "50px" }} className="sidebar-list">
         {/* change a tags to link later on */}
 
-        <li className="sidebar-list-item">
-          <Link to="/admin/dashboard">
-            <BsGrid1X2Fill className="icon" /> Dashboard
-          </Link>
-        </li>
+        <Link to="/admin/dashboard">
+          <li className="sidebar-list-item flex items-center">
+            <BsGrid1X2Fill className="icon mr-6" /> <span>Dashboard</span>
+          </li>
+        </Link>
 
-        <li className="sidebar-list-item">
-          <Link to="/admin/dashboard/users">
+        <Link to="/admin/dashboard/users">
+          <li className="sidebar-list-item flex items-center">
             <BsPeopleFill className="icon" /> Users
-          </Link>
-        </li>
+          </li>
+        </Link>
 
-        <li className="sidebar-list-item">
-          <Link to="/admin/dashboard/products">
+        <Link to="/admin/dashboard/products">
+          <li className="sidebar-list-item flex items-center">
             <BsFillArchiveFill className="icon" /> Products
-          </Link>
-        </li>
+          </li>
+        </Link>
 
-        <li className="sidebar-list-item">
-          <Link to="/admin/dashboard/orders">
+        <Link to="/admin/dashboard/orders">
+          <li className="sidebar-list-item flex items-center">
             <BsFillArchiveFill className="icon" /> Orders
-          </Link>
-        </li>
+          </li>
+        </Link>
 
         {/* <li className="sidebar-list-item">
           <a href="">
@@ -63,16 +63,12 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           </a>
         </li> */}
 
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsFillGrid3X3GapFill className="icon" /> Categories
-          </a>
+        <li className="sidebar-list-item flex items-center">
+          <BsFillGrid3X3GapFill className="icon" /> Categories
         </li>
 
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsPersonFillGear className="icon" /> Admins
-          </a>
+        <li className="sidebar-list-item flex items-center">
+          <BsPersonFillGear className="icon" /> Admins
         </li>
 
         {/* <li className="sidebar-list-item">
