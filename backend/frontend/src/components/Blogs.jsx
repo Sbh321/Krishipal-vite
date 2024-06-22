@@ -1,26 +1,14 @@
+import React from "react";
 import BlogCard from "./BlogCard";
+import CircularProgress from "@mui/material/CircularProgress";
+import Alert from "@mui/material/Alert";
+import { useGetLatestBlogQuery } from "../slices/blogsApiSlice.js";
 
 const Blogs = () => {
-  const data = [
-    {
-      img: "https://thebravecoders-ecommerce-website-react-tailwind.vercel.app/post__1.webp",
-      title: "Lorem Ipsum",
-      date: "01/01/2021",
-      comment: 10,
-    },
-    {
-      img: "https://thebravecoders-ecommerce-website-react-tailwind.vercel.app/post__2.webp",
-      title: "Lorem Ipsum",
-      date: "01/12/2021",
-      comment: 10,
-    },
-    {
-      img: "https://thebravecoders-ecommerce-website-react-tailwind.vercel.app/post__3.webp",
-      title: "Lorem Ipsum",
-      date: "01/22/2021",
-      comment: 10,
-    },
-  ];
+  // Fetching the latest blogs
+  const { data: blogs, isLoading, error } = useGetLatestBlogQuery();
+
+  console.log(blogs);
 
   return (
     <div className="container pt-16">
@@ -30,18 +18,40 @@ const Blogs = () => {
         blog.
       </p>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 pt-8">
-        {data.map((el) => (
-          <BlogCard
-            key={el.date}
-            img={el.img}
-            title={el.title}
-            date={el.date}
-            comment={el.comment}
-          />
-        ))}
-      </div>
+      {/* Handle loading state */}
+      {isLoading ? (
+        <div className="flex items-center justify-center mt-8">
+          <CircularProgress size={64} style={{ color: "#718096" }} />
+        </div>
+      ) : error ? (
+        /* Handle error state */
+        <Alert severity="error" className="mt-8">
+          Error fetching blogs: {error.message || "Unknown error"}
+        </Alert>
+      ) : (
+        /* Display the blogs once loaded */
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 pt-8">
+          {blogs?.length > 0 ? (
+            blogs.map((el) => (
+              <BlogCard
+                key={el._id}
+                id={el._id}
+                img={el.image}
+                title={el.title}
+                // date={el.date}
+                // comment={el.comment}
+              />
+            ))
+          ) : (
+            /* Handle case when there are no blogs */
+            <p className="text-gray-500 text-center col-span-full">
+              No blogs available.
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 };
+
 export default Blogs;

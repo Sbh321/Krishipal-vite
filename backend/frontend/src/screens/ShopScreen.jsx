@@ -4,10 +4,12 @@ import Hero from "../components/Hero";
 import FeatureSectionSeeds from "../components/FeatureSectionSeeds";
 import Blogs from "../components/Blogs";
 import Services from "../components/Services";
+import OnScrollCartIcon from "../components/OnScrollCartIcon";
 
 const ShopScreen = () => {
   return (
     <>
+      <OnScrollCartIcon />
       <Category />
       <Hero />
       <FeatureSectionSeeds />

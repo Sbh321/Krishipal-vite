@@ -130,21 +130,22 @@ const Header = () => {
 
             <div className="md:flex hidden">
               <div className="ml-auto flex items-center lg:gap-6">
-                <a href="#" className="hover:text-gray-500 px-3 py-2">
-                  Home
-                </a>
-                <a href="#" className="hover:text-gray-500 px-3 py-2">
-                  About
-                </a>
-                <a href="#" className=" hover:text-gray-500 px-3 py-2">
-                  Advice
-                </a>
-                <a href="#" className=" hover:text-gray-500 px-3 py-2">
-                  Blogs
-                </a>
-                <a href="#" className=" hover:text-gray-500 px-3 py-2">
-                  Contact
-                </a>
+                <Link to="/">
+                  <p className="hover:text-gray-500 px-3 py-2">Home</p>
+                </Link>
+                <Link to="/about">
+                  <p className="hover:text-gray-500 px-3 py-2">About</p>
+                </Link>
+                {/* <p className=" hover:text-gray-500 px-3 py-2">Advice</p> */}
+                <Link to="/blogs">
+                  <p className=" hover:text-gray-500 px-3 py-2">Blogs</p>
+                </Link>
+                <Link to="/contact">
+                  <p className=" hover:text-gray-500 px-3 py-2">Contact</p>
+                </Link>
+                <Link to="/shop">
+                  <p className=" hover:text-gray-500 px-3 py-2">Shop</p>
+                </Link>
               </div>
             </div>
 
@@ -177,11 +178,11 @@ const Header = () => {
 
                       {/* Submenu for Full Name */}
                       {isFullNameOpen && (
-                        <ul className="absolute rounded bg-white shadow-md py-2 md:px-4 px-20">
+                        <ul className="absolute rounded bg-white shadow-md py-2 md:px-4 px-20 z-50">
                           <li className="my-1">
-                            <a className="hover:text-gray-500" href="">
-                              Profile
-                            </a>
+                            <Link to={"/profile"}>
+                              <p className="hover:text-gray-500">Profile</p>
+                            </Link>
                           </li>
                           <li>
                             <a
@@ -206,7 +207,7 @@ const Header = () => {
 
                         {/* Submenu for Admin */}
                         {isAdminOpen && (
-                          <ul className="absolute rounded bg-white shadow-md py-2 md:px-4 px-20">
+                          <ul className="absolute rounded bg-white shadow-md py-2 md:px-4 px-20 z-50">
                             <li className="my-1">
                               <Link to={"/admin/userlist"}>Users</Link>
                             </li>
@@ -359,6 +360,9 @@ const Header = () => {
                 </div>
               )}
             </div>
+            <Link to="/shop">
+              <p className=" hover:text-gray-500 px-3 py-2">Shop</p>
+            </Link>
           </div>
         </div>
         {/* <NavMenuMob isOpen={isOpen} /> */}

@@ -100,14 +100,14 @@ const LoginScreen = () => {
             )}
           </form>
         </div>
-        <div className="text-center space-y-4 mt-4">
+        {/* <div className="text-center space-y-4 mt-4">
           <span>or</span>
           <div className="flex justify-center items-center gap-8">
             <h4>Google</h4>
             <h4>Facebook</h4>
             <h4>GitHub</h4>
           </div>
-        </div>
+        </div> */}
         <div className="mt-4">
           Don't have an account?{" "}
           <span className="text-blue-600 cursor-pointer hover:text-blue-400">

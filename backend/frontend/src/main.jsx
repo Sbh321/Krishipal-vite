@@ -25,6 +25,11 @@ import ShippingScreen from "./screens/ShippingScreen.jsx";
 import PaymentScreen from "./screens/PaymentScreen.jsx";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen.jsx";
 import OrderScreen from "./screens/OrderScreen.jsx";
+import BlogScreen from "./screens/BlogScreen.jsx";
+import BlogsScreen from "./screens/BlogsScreen.jsx";
+import AboutScreen from "./screens/AboutScreen.jsx";
+import ContactScreens from "./screens/ContactScreen.jsx";
+import ProfileScreen from "./screens/ProfileScreen.jsx";
 
 import UserListScreen from "./screens/admin/UserListScreen.jsx";
 import ProductListScreen from "./screens/admin/ProductListScreen.jsx";
@@ -34,6 +39,9 @@ import AdminHome from "./dashboard/components/AdminHome.jsx";
 import UserList from "./dashboard/components/UserList.jsx";
 import ProductList from "./dashboard/components/ProductList.jsx";
 import OrderList from "./dashboard/components/OrderList.jsx";
+import CategoryList from "./dashboard/components/CategoryList.jsx";
+import AdminListScreen from "./dashboard/components/AdminListScreen.jsx";
+import BlogList from "./dashboard/components/BlogList.jsx";
 
 import PrivateRoute from "./routes/PrivateRoute.jsx";
 import AdminRoute from "./routes/AdminRoute.jsx";
@@ -50,13 +58,17 @@ const router = createBrowserRouter(
         <Route path="/shop/products" element={<ProductsScreen />} />
         <Route path="/cart" element={<CartScreen />} />
         <Route path="/product/:id" element={<ProductScreen />} />
+        <Route path="/blogs/:id" element={<BlogScreen />} />
+        <Route path="/blogs" element={<BlogsScreen />} />
+        <Route path="/about" element={<AboutScreen />} />
+        <Route path="/contact" element={<ContactScreens />} />
 
         <Route path="" element={<PrivateRoute />}>
           <Route path="/shipping" element={<ShippingScreen />} />
           <Route path="/payment" element={<PaymentScreen />} />
           <Route path="/placeorder" element={<PlaceOrderScreen />} />
           <Route path="/order/:id" element={<OrderScreen />} />
-          {/* <Route path="/profile" element={<ProfileScreen />} /> */}
+          <Route path="/profile" element={<ProfileScreen />} />
         </Route>
 
         <Route path="" element={<AdminRoute />}>
@@ -80,6 +92,12 @@ const router = createBrowserRouter(
           <Route path="/admin/dashboard/users" element={<UserList />} />
           <Route path="/admin/dashboard/products" element={<ProductList />} />
           <Route path="/admin/dashboard/orders" element={<OrderList />} />
+          <Route
+            path="/admin/dashboard/categories"
+            element={<CategoryList />}
+          />
+          <Route path="/admin/dashboard/admins" element={<AdminListScreen />} />
+          <Route path="/admin/dashboard/blogs" element={<BlogList />} />
         </Route>
       </Route>
     </>

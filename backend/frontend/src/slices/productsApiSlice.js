@@ -3,6 +3,10 @@ import { apiSlice } from "./apiSlice.js";
 
 export const productsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
+    getProd: builder.query({
+      query: () => ({ url: `${PRODUCTS_URL}/prod` }),
+      keepUnusedDataFor: 5,
+    }),
     getProducts: builder.query({
       query: ({ keyword, pageNumber }) => ({
         url: PRODUCTS_URL,
@@ -23,9 +27,10 @@ export const productsApiSlice = apiSlice.injectEndpoints({
     }),
 
     createProduct: builder.mutation({
-      query: () => ({
+      query: (newProduct) => ({
         url: PRODUCTS_URL,
         method: "POST",
+        body: newProduct,
       }),
       invalidatesTags: ["Product"],
     }),
@@ -71,6 +76,7 @@ export const productsApiSlice = apiSlice.injectEndpoints({
 });
 
 export const {
+  useGetProdQuery,
   useGetProductsQuery,
   useGetLatestProductQuery,
   useGetProductDetailsQuery,

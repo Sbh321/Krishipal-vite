@@ -8,21 +8,15 @@ import {
   useDeleteUserMutation,
 } from "../../slices/usersApiSlice";
 import { toast } from "react-hot-toast";
-
+import Alert from "@mui/material/Alert";
+import CircularProgress from "@mui/material/CircularProgress";
 import Confirmation from "../confirm/Confirmation";
-
-const options = {
-  filterType: "checkbox",
-  selectableRows: "none",
-  rowsPerPage: 10,
-  rowsPerPageOptions: [5, 10, 20, 50],
-};
+// import CustomToolbar from "./CustomToolbar"; // Adjust the path as needed
 
 const UserList = () => {
   const [deleteUser, { isLoading: loadingDelete }] = useDeleteUserMutation();
 
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [confirmed, setConfirmed] = useState(false);
   const [deleteUserId, setDeleteUserId] = useState(null); // State to store the id to delete
 
   const handleDelete = (userId) => {
@@ -50,14 +44,28 @@ const UserList = () => {
     setIsModalOpen(true);
   };
 
+  // const handleCustomButtonClick = () => {
+  //   toast("Custom Button Clicked!");
+  //   console.log("Custom Button Clicked!");
+  // };
+
   const { data: users, refetch, error, isLoading } = useGetUsersQuery();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center gap-2 mt-[10px]">
+        <CircularProgress size={64} style={{ color: "#718096" }} />
+        <span className="text-gray-600">Loading ...</span>
+      </div>
+    );
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return (
+      <Alert severity="error" className="mt-[10px]">
+        Error! Please Reload the page
+      </Alert>
+    );
   }
 
   if (!users) {
@@ -86,9 +94,20 @@ const UserList = () => {
     </div>,
   ]);
 
+  const options = {
+    filter: false,
+    filterType: "checkbox",
+    selectableRows: "none",
+    rowsPerPage: 10,
+    rowsPerPageOptions: [5, 10, 20, 50],
+    // customToolbar: () => (
+    //   <CustomToolbar handleClick={handleCustomButtonClick} />
+    // ),
+  };
+
   return (
     <div>
-      <div className="m-4">
+      <div className="m-4 z-40">
         <MUIDataTable
           title={"Users List"}
           data={transformedData}

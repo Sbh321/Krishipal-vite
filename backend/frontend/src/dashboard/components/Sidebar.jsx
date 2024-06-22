@@ -57,19 +57,23 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
           </li>
         </Link>
 
-        {/* <li className="sidebar-list-item">
-          <a href="">
+        <Link to="/admin/dashboard/categories">
+          <li className="sidebar-list-item flex items-center">
+            <BsFillGrid3X3GapFill className="icon" /> Categories
+          </li>
+        </Link>
+
+        <Link to="/admin/dashboard/admins">
+          <li className="sidebar-list-item flex items-center">
+            <BsPersonFillGear className="icon" /> Admins
+          </li>
+        </Link>
+
+        <Link to="/admin/dashboard/blogs">
+          <li className="sidebar-list-item flex items-center">
             <BsPaperclip className="icon" /> Blogs
-          </a>
-        </li> */}
-
-        <li className="sidebar-list-item flex items-center">
-          <BsFillGrid3X3GapFill className="icon" /> Categories
-        </li>
-
-        <li className="sidebar-list-item flex items-center">
-          <BsPersonFillGear className="icon" /> Admins
-        </li>
+          </li>
+        </Link>
 
         {/* <li className="sidebar-list-item">
           <a href="">

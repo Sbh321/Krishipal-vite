@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
         <img
           src={`http://localhost:8000${product.image}`}
           alt="img"
-          className="rounded-lg cursor-pointer"
+          className="w-full h-100 object-cover rounded-t-lg cursor-pointer"
         />
       </Link>
 

@@ -22,12 +22,14 @@ const Hero = () => {
             <div className="font-medium text-red-600 text-2xl sm:text-4xl pb-4 sm:pb-8">
               Rs. 150
             </div>
-            <div
-              className="bg-accentDark hover:bg-accent text-white rounded-full w-fit flex items-center
+            <Link to="/product/667652175ca24cee605a8f6f">
+              <div
+                className="bg-accent hover:bg-accentDark text-white rounded-full w-fit flex items-center
 gap-4 px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer"
-            >
-              Shop Now <BsArrowRight />
-            </div>
+              >
+                Shop Now <BsArrowRight />
+              </div>
+            </Link>
           </div>
         </div>
 
@@ -45,12 +47,14 @@ gap-4 px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer"
             <div className="font-medium text-red-600 text-2xl sm:text-4xl pb-4 sm:pb-8">
               Rs 200
             </div>
-            <div
-              className="bg-accent hover:bg-accentDark text-white rounded-full w-fit flex items-center
+            <Link to="/product/6676f366b391a0d4b9e65217">
+              <div
+                className="bg-accent hover:bg-accentDark text-white rounded-full w-fit flex items-center
 gap-4 px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer"
-            >
-              Shop Now <BsArrowRight />
-            </div>
+              >
+                Shop Now <BsArrowRight />
+              </div>
+            </Link>
           </div>
         </div>
 

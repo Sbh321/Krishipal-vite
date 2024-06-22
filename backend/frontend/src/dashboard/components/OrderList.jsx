@@ -1,16 +1,29 @@
 import React from "react";
 import MUIDataTable from "mui-datatables";
 import { useGetOrdersQuery } from "../../slices/ordersApiSlice";
+import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import Alert from "@mui/material/Alert";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const OrderList = () => {
   const { data: orders, isLoading, error, refetch } = useGetOrdersQuery();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center gap-2 mt-[10px]">
+        <CircularProgress size={64} style={{ color: "#718096" }} />
+        <span className="text-gray-600">Loading ...</span>
+      </div>
+    );
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return (
+      <Alert severity="error" className="mt-[10px]">
+        Error! Please Reload the page
+      </Alert>
+    );
   }
 
   if (!orders) {
@@ -34,6 +47,18 @@ const OrderList = () => {
     `Rs ${order.totalPrice}`,
     order.isPaid ? order.paidAt.substring(0, 10) : "❌",
     order.isDelivered ? order.deliveredAt.substring(0, 10) : "❌",
+    <div key={order._id} className="flex items-center gap-1">
+      <Link to={`/order/${order._id}`} className="text-green-500">
+        <button className="text-black p-1 rounded-lg hover:shadow-lg hover:text-green-900 focus:outline-none">
+          Details
+        </button>
+      </Link>
+
+      {/* <FaRegTrashAlt
+        className="text-gray-500 text-2xl cursor-pointer hover:shadow-lg hover:text-green-900"
+        onClick={() => handleDelete(user._id)} // Pass userId to handleDelete
+      /> */}
+    </div>,
   ]);
 
   return (

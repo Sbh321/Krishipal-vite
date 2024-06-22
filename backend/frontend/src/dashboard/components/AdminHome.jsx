@@ -4,72 +4,35 @@ import {
   BsFillGrid3X3GapFill,
   BsPeopleFill,
   BsFillBellFill,
+  BsPalette,
+  BsPaperclip,
 } from "react-icons/bs";
-import {
-  BarChart,
-  Bar,
-  Cell,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  LineChart,
-  Line,
-} from "recharts";
+import { useGetProdQuery } from "../../slices/productsApiSlice";
+import { useGetCategoriesQuery } from "../../slices/categoryApiSlice";
+import { useGetUsersQuery } from "../../slices/usersApiSlice";
+import { useGetBlogsQuery } from "../../slices/blogsApiSlice";
 import "./AdminHome.css";
 
 function AdminHome() {
-  const data = [
-    {
-      name: "Page A",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: "Page C",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: "Page D",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: "Page E",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: "Page F",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: "Page G",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
+  const { data: products } = useGetProdQuery();
+  const { data: categories } = useGetCategoriesQuery();
+  const { data: users } = useGetUsersQuery();
+  const { data: blogs } = useGetBlogsQuery();
+
+  // Calculate counts
+  const productsCount = products ? products.length : 0;
+  const categoriesCount = categories ? categories.length : 0;
+  const usersCount = users ? users.length : 0;
+  const blogsCount = blogs ? blogs.length : 0;
 
   return (
     <main className="main-container">
       <div className="main-title">
         <h3 className="text-3xl">DASHBOARD</h3>
+      </div>
+
+      <div className="mt-5">
+        <h2 className="text-2xl">Statistics</h2>
       </div>
 
       <div className="main-cards">
@@ -78,80 +41,36 @@ function AdminHome() {
             <h3 className="text-2xl">PRODUCTS</h3>
             <BsFillArchiveFill className="card_icon" />
           </div>
-          <h1 className="text-2xl">300</h1>
+          <h1 className="text-2xl">{productsCount}</h1>
         </div>
         <div className="aCard">
           <div className="card-inner">
             <h3 className="text-2xl">CATEGORIES</h3>
             <BsFillGrid3X3GapFill className="card_icon" />
           </div>
-          <h1 className="text-2xl">12</h1>
+          <h1 className="text-2xl">{categoriesCount}</h1>
         </div>
         <div className="aCard">
           <div className="card-inner">
-            <h3 className="text-2xl">CUSTOMERS</h3>
+            <h3 className="text-2xl">USERS</h3>
             <BsPeopleFill className="card_icon" />
           </div>
-          <h1 className="text-2xl">33</h1>
+          <h1 className="text-2xl">{usersCount}</h1>
         </div>
         <div className="aCard">
+          <div className="card-inner">
+            <h3 className="text-2xl">BLOGS</h3>
+            <BsPaperclip className="card_icon" />
+          </div>
+          <h1 className="text-2xl">{blogsCount}</h1>
+        </div>
+        {/* <div className="aCard">
           <div className="card-inner">
             <h3 className="text-2xl">ALERTS</h3>
             <BsFillBellFill className="card_icon" />
           </div>
           <h1 className="text-2xl">42</h1>
-        </div>
-      </div>
-
-      <div className="charts">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            width={500}
-            height={300}
-            data={data}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="pv" fill="#8884d8" />
-            <Bar dataKey="uv" fill="#82ca9d" />
-          </BarChart>
-        </ResponsiveContainer>
-
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart
-            width={500}
-            height={300}
-            data={data}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Line
-              type="monotone"
-              dataKey="pv"
-              stroke="#8884d8"
-              activeDot={{ r: 8 }}
-            />
-            <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-          </LineChart>
-        </ResponsiveContainer>
+        </div> */}
       </div>
     </main>
   );

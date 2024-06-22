@@ -7,7 +7,6 @@ import Alert from "@mui/material/Alert";
 
 const LatestProducts = () => {
   const { data: products, isLoading, error } = useGetLatestProductQuery();
-  console.log(products);
 
   return (
     <div className="container pt-16">

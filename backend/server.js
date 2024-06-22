@@ -9,6 +9,8 @@ import productRoute from "./routes/productRoute.js";
 import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoute.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
+import categoryRoutes from "./routes/categoryRoutes.js";
+import blogRoutes from "./routes/blogRoutes.js";
 
 import cors from "cors";
 
@@ -36,6 +38,8 @@ app.use("/api/products", productRoute);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/upload", uploadRoutes);
+app.use("/api/categories", categoryRoutes);
+app.use("/api/blogs", blogRoutes);
 
 app.get("/api/config/paypal", (req, res) =>
   res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
