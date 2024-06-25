@@ -65,7 +65,7 @@ const ProductScreen = () => {
           </button>
         </Link>
 
-        {userInfo?.isAdmin && (
+        {/* {userInfo?.isAdmin && (
           <div className="flex justify-end w-full">
             <div className="flex gap-3">
               <button className="text-white font-medium lg:w-[100px] lg:h-[40px] w-[60px] h-[30px] bg-accent border hover:border-slate-600 hover:border-2 hover:bg-white transition-all hover:text-slate-600 rounded-l-full">
@@ -77,7 +77,7 @@ const ProductScreen = () => {
               </button>
             </div>
           </div>
-        )}
+        )} */}
       </div>
 
       {isLoading ? (

@@ -46,7 +46,7 @@ const BlogScreen = () => {
           </button>
         </Link>
 
-        {userInfo?.isAdmin && (
+        {/* {userInfo?.isAdmin && (
           <div className="flex justify-end w-full">
             <div className="flex gap-3">
               <button
@@ -70,7 +70,7 @@ const BlogScreen = () => {
               </button>
             </div>
           </div>
-        )}
+        )} */}
       </div>
 
       {isLoading ? (

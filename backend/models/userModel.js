@@ -25,10 +25,6 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// userSchema.methods.matchPassword = async (enteredPassword) => {
-//   return await bcrypt.compare(enteredPassword, this.password);
-// }; //This is incorrect cause arrow function do not have access to this keyword
-
 userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };

@@ -46,7 +46,7 @@ const OrderListScreen = () => {
                     <th className="py-2 px-4 border-b text-left text-green-700 text-sm sm:text-base">
                       Delivered
                     </th>
-                    <th></th>
+                    {/* <th></th> */}
                   </tr>
                 </thead>
                 <tbody>
@@ -62,6 +62,9 @@ const OrderListScreen = () => {
                         {order.createdAt.substring(0, 10)}
                       </td>
                       <td className="py-2 px-4 border-b text-sm sm:text-base">
+                        Rs. {order.totalPrice.toFixed(2)}
+                      </td>
+                      <td className="py-2 px-4 border-b text-sm sm:text-base">
                         {order.isPaid ? order.paidAt.substring(0, 10) : "X"}
                       </td>
                       <td>
@@ -69,11 +72,11 @@ const OrderListScreen = () => {
                           ? order.deliveredAt.substring(0, 10)
                           : "X"}
                       </td>
-                      <td className="py-2 px-4 border-b text-sm sm:text-base flex items-center space-x-4">
+                      {/* <td className="py-2 px-4 border-b text-sm sm:text-base flex items-center space-x-4">
                         <div to={`/order/${order._id}`}>
                           <button>Details</button>
                         </div>
-                      </td>
+                      </td> */}
                     </tr>
                   ))}
                 </tbody>

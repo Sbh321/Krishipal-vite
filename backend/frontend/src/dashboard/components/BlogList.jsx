@@ -118,13 +118,13 @@ const BlogList = () => {
     <div key={blog._id} className="flex items-center gap-1">
       <button
         onClick={() => handleEditButtonClick(blog._id)}
-        className="text-gray-500 text-2xl hover:shadow-lg hover:text-green-900"
+        className="text-purple-600 text-2xl hover:shadow-lg hover:text-green-900"
       >
         <FaEdit />
       </button>
 
       <FaRegTrashAlt
-        className="text-gray-500 text-2xl cursor-pointer hover:shadow-lg hover:text-green-900"
+        className="text-red-600 text-2xl cursor-pointer hover:shadow-lg hover:text-green-900"
         onClick={() => handleDelete(blog._id)} // Pass blogId to handleDelete
       />
     </div>,

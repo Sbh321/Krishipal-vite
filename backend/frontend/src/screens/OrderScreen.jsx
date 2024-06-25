@@ -245,12 +245,12 @@ const OrderScreen = () => {
                   </div>
                 ) : (
                   <div>
-                    <button
+                    {/* <button
                       onClick={onApproveTest}
                       className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700 mb-4 w-full"
                     >
                       Test Pay Order
-                    </button>
+                    </button> */}
                     <div>
                       <PayPalButtons
                         createOrder={createOrder}

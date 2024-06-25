@@ -60,9 +60,9 @@ const UserListScreen = () => {
                   <th className="py-2 px-4 border-b text-left text-green-700 text-sm sm:text-base">
                     ADMIN
                   </th>
-                  <th className="py-2 px-4 border-b text-left text-green-700 text-sm sm:text-base">
+                  {/* <th className="py-2 px-4 border-b text-left text-green-700 text-sm sm:text-base">
                     Action
-                  </th>
+                  </th> */}
                 </tr>
               </thead>
               <tbody>
@@ -80,7 +80,7 @@ const UserListScreen = () => {
                     <td className="py-2 px-4 border-b text-sm sm:text-base">
                       {user.isAdmin ? <p>Y</p> : <p>N</p>}
                     </td>
-                    <td className="py-2 px-4 border-b text-sm sm:text-base flex items-center space-x-4">
+                    {/* <td className="py-2 px-4 border-b text-sm sm:text-base flex items-center space-x-4">
                       <Link
                         to={`/admin/user/${user._id}/edit`}
                         className="text-green-700 text-lg hover:shadow-lg hover:text-green-900"
@@ -88,7 +88,7 @@ const UserListScreen = () => {
                         <FaEdit />
                       </Link>
                       <FaRegTrashAlt className="text-green-700 text-lg cursor-pointer hover:shadow-lg hover:text-green-900" />
-                    </td>
+                    </td> */}
                   </tr>
                 ))}
               </tbody>
