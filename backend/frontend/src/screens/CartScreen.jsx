@@ -43,7 +43,7 @@ const CartScreen = () => {
                 >
                   <div className="w-1/5 flex justify-between">
                     <img
-                      src={`http://localhost:8000${item.image}`}
+                      src={`http://localhost:10000${item.image}`}
                       alt="image"
                       className="w-full rounded-md"
                     />

@@ -87,7 +87,7 @@ const BlogScreen = () => {
           <div className="md:flex md:gap-2 mt-[10px]">
             <div className="lg:w-3/6 lg:pr-[30px]">
               <img
-                src={`http://localhost:8000${blog.image}`}
+                src={`http://localhost:10000${blog.image}`}
                 alt={blog.title}
                 className="w-full h-auto object-cover rounded-xl"
               />

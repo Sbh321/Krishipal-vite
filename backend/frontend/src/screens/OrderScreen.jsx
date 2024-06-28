@@ -188,7 +188,7 @@ const OrderScreen = () => {
                   >
                     <div className="flex items-center gap-2">
                       <img
-                        src={item.image}
+                        src={`http://localhost:10000${item.image}`}
                         alt={item.name}
                         className="w-16 h-16 rounded-md mr-4"
                       />

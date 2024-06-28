@@ -76,7 +76,7 @@ const PlaceOrderScreen = () => {
                   >
                     <div className="flex items-center gap-2">
                       <img
-                        src={`http://localhost:8000${item.image}`}
+                        src={`http://localhost:10000${item.image}`}
                         alt={item.name}
                         className="w-16 h-16 rounded-md mr-4"
                       />

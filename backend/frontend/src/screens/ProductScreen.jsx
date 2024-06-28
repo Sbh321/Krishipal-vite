@@ -91,17 +91,17 @@ const ProductScreen = () => {
         </Alert>
       ) : (
         <>
-          <div class="md:flex md:gap-2 mt-[10px]">
-            <div class="lg:w-3/6 lg:pr-[30px]">
+          <div className="md:flex md:gap-2 mt-[10px]">
+            <div className="lg:w-3/6 lg:pr-[30px]">
               <img
-                src={`http://localhost:8000${product.image}`}
+                src={`http://localhost:10000${product.image}`}
                 alt={product.name}
-                class="w-[100%]  h-[90%] object-cover rounded-xl"
+                className="w-[100%]  h-[90%] object-cover rounded-xl"
               />
             </div>
 
-            <div class="lg:w-2/6 pr-8">
-              <div class="bg-white">
+            <div className="lg:w-2/6 pr-8">
+              <div className="bg-white">
                 <div className="px-4 py-2 border-b border-gray-300">
                   <p class="text-3xl">{product.name}</p>
                 </div>
@@ -122,8 +122,8 @@ const ProductScreen = () => {
               </div>
             </div>
 
-            <div class="lg:w-1/6 lg:mt-0 mt-8">
-              <div class="border border-gray-300 rounded-md">
+            <div className="lg:w-1/6 lg:mt-0 mt-8">
+              <div className="border border-gray-300 rounded-md">
                 <div className="flex py-2 px-4 border-b border-gray-300">
                   <p>Price:</p>
                   <div className="flex items-center justify-center flex-grow">
@@ -164,7 +164,7 @@ const ProductScreen = () => {
 
                 <div className="py-2 px-4">
                   <button
-                    class="bg-accent hover:bg-accentDark text-white px-4 py-2 mt-2 rounded cursor-pointer"
+                    className="bg-accent hover:bg-accentDark text-white px-4 py-2 mt-2 rounded cursor-pointer"
                     onClick={addToCartHandler}
                   >
                     Add to Cart
@@ -174,13 +174,13 @@ const ProductScreen = () => {
             </div>
           </div>
 
-          <div class="review mt-8 lg:mt-0">
-            <p class="text-3xl font-bold mb-4">Review</p>
+          <div className="review mt-8 lg:mt-0">
+            <p className="text-3xl font-bold mb-4">Review</p>
 
             <div className="md:flex gap-5">
-              <div class="md:w-1/2">
-                <div class="bg-gray-100 p-4 rounded-lg mb-4">
-                  <p class="text-2xl mb-4">Latest reviews</p>
+              <div className="md:w-1/2">
+                <div className="bg-gray-100 p-4 rounded-lg mb-4">
+                  <p className="text-2xl mb-4">Latest reviews</p>
                 </div>
                 {product.reviews.length === 0 && (
                   <Alert severity="error" className="my-[10px]">
@@ -188,41 +188,44 @@ const ProductScreen = () => {
                   </Alert>
                 )}
                 {product.reviews.map((review) => (
-                  <div key={review._id} class="bg-gray-100 p-4 rounded-lg mb-4">
-                    <p class="font-semibold">{review.name}</p>
-                    <div class="flex items-center">
+                  <div
+                    key={review._id}
+                    className="bg-gray-100 p-4 rounded-lg mb-4"
+                  >
+                    <p className="font-semibold">{review.name}</p>
+                    <div className="flex items-center">
                       <div className="text-yellow-400 flex gap-[2px] text-[20px]">
                         <Rating value={product.rating} />
                       </div>
-                      <p class="text-gray-600 ml-2">
+                      <p className="text-gray-600 ml-2">
                         {review.createdAt.substring(0, 10)}
                       </p>
                     </div>
-                    <p class="mt-2">{review.comment}</p>
+                    <p className="mt-2">{review.comment}</p>
                   </div>
                 ))}
               </div>
 
-              <div class="md:w-1/2">
-                <div class="bg-gray-100 p-4 rounded-lg mb-4">
-                  <p class="text-2xl mb-4">Write a Customer Review</p>
+              <div className="md:w-1/2">
+                <div className="bg-gray-100 p-4 rounded-lg mb-4">
+                  <p className="text-2xl mb-4">Write a Customer Review</p>
                   {loadingProductReview && (
-                    <div class="flex items-center justify-center gap-2">
-                      <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-700"></div>
-                      <span class="text-gray-600">Loading ...</span>
+                    <div className="flex items-center justify-center gap-2">
+                      <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-700"></div>
+                      <span className="text-gray-600">Loading ...</span>
                     </div>
                   )}
                   {userInfo ? (
                     <form onSubmit={submitHandler}>
-                      <div class="my-4">
-                        <label for="rating" class="block">
+                      <div className="my-4">
+                        <label for="rating" className="block">
                           Rating
                         </label>
                         <select
                           id="rating"
                           value={rating}
                           onChange={(e) => setRating(Number(e.target.value))}
-                          class="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none focus:border-blue-500"
+                          className="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none focus:border-blue-500"
                         >
                           <option value="">Select...</option>
                           <option value="1">1 - Poor</option>
@@ -232,8 +235,8 @@ const ProductScreen = () => {
                           <option value="5">5 - Excellent</option>
                         </select>
                       </div>
-                      <div class="my-4">
-                        <label for="comment" class="block">
+                      <div className="my-4">
+                        <label for="comment" className="block">
                           Comment
                         </label>
                         <textarea
@@ -241,20 +244,23 @@ const ProductScreen = () => {
                           rows="3"
                           value={comment}
                           onChange={(e) => setComment(e.target.value)}
-                          class="border border-gray-300 rounded w-full px-4 py-2 focus:outline-none focus:border-blue-500"
+                          className="border border-gray-300 rounded w-full px-4 py-2 focus:outline-none focus:border-blue-500"
                         ></textarea>
                       </div>
                       <button
-                        class="bg-accent hover:bg-accentDark text-white px-6 py-3 rounded"
+                        className="bg-accent hover:bg-accentDark text-white px-6 py-3 rounded"
                         type="submit"
                       >
                         Submit
                       </button>
                     </form>
                   ) : (
-                    <p class="mt-4">
+                    <p className="mt-4">
                       Please{" "}
-                      <a href="/login" class="text-blue-500 hover:underline">
+                      <a
+                        href="/login"
+                        className="text-blue-500 hover:underline"
+                      >
                         sign in
                       </a>{" "}
                       to write a review

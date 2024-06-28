@@ -49,7 +49,7 @@ const Cart = ({ setShowCart }) => {
               >
                 <div className="flex items-center gap-4">
                   <img
-                    src={`http://localhost:8000${el.image}`}
+                    src={`http://localhost:10000${el.image}`}
                     alt="img"
                     className="h-[100px] rounded-md"
                   />

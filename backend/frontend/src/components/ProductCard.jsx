@@ -26,7 +26,7 @@ const ProductCard = ({ product }) => {
     <div className="border border-gray-200 hover:border-gray-300 hover:scale-105 transition-transform rounded-lg relative">
       <Link to={`/product/${product._id}`}>
         <img
-          src={`http://localhost:8000${product.image}`}
+          src={`http://localhost:10000${product.image}`}
           alt="img"
           className="w-full h-100 object-cover rounded-t-lg cursor-pointer"
         />

@@ -8,7 +8,7 @@ const BlogCard = ({ img, title, id }) => {
       <Link to={`/blogs/${id}`}>
         <img
           className="rounded-lg hover:scale-105 transition-transform object-cover w-full h-64"
-          src={`http://localhost:8000${img}`}
+          src={`http://localhost:10000${img}`}
           alt="post"
         />
         <div className="text-accent font-medium">
