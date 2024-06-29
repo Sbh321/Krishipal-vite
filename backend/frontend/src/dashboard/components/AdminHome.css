@@ -1,14 +1,14 @@
-/* Main  */
+/* Main */
 .main-container {
   grid-area: main;
   overflow-y: auto;
-  padding: 20px 20px;
+  padding: 20px;
   color: rgba(255, 255, 255, 0.95);
 }
 
 .main-title {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center align the title */
 }
 
 .main-cards {
@@ -21,25 +21,10 @@
 .aCard {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center; /* Center align content */
   padding: 20px 15px;
   border-radius: 5px;
-}
-
-.aCard:first-child {
-  background-color: #2962ff;
-}
-
-.aCard:nth-child(2) {
-  background-color: #ff6d00;
-}
-
-.aCard:nth-child(3) {
-  background-color: #2e7d32;
-}
-
-.aCard:nth-child(4) {
-  background-color: #d50000;
+  text-align: center; /* Center align text */
 }
 
 .card-inner {
@@ -52,12 +37,9 @@
   font-size: 25px;
 }
 
-.charts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 60px;
-  height: 300px;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-cards {
+    grid-template-columns: 1fr; /* Display cards in a single column on smaller screens */
+  }
 }
-
-/* End Main  */

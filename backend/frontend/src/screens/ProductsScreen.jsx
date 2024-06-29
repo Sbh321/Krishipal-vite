@@ -6,6 +6,7 @@ import ProductCard from "../components/ProductCard";
 import Paginate from "../components/Paginate";
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
+import OnScrollCartIcon from "../components/OnScrollCartIcon";
 
 const ProductsScreen = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const ProductsScreen = () => {
 
   return (
     <div className="p-4 container">
+      <OnScrollCartIcon />
       <h1 className="text-4xl text-accent">All Products</h1>
       <form onSubmit={handleSearch} className="mb-4">
         <input

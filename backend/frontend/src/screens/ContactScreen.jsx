@@ -13,7 +13,7 @@ const ContactScreen = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-8 m-24">
+      <div className="grid grid-cols-1 gap-8">
         {/* <div className="p-6 bg-white rounded-lg shadow-md">
           <h2 className="text-2xl font-bold mb-4">Contact Form</h2>
           <form className="space-y-4">
@@ -62,7 +62,7 @@ const ContactScreen = () => {
           </form>
         </div> */}
 
-        <div className="p-6 bg-white rounded-lg shadow-md w-[500px] m-auto">
+        <div className="p-6 bg-white rounded-lg shadow-md m-auto">
           <h2 className="text-2xl font-bold mb-4">Contact Information</h2>
           <div className="flex items-center space-x-4 mb-4">
             <AiFillPhone className="text-accentDark text-2xl" />

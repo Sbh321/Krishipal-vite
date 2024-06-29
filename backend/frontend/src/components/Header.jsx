@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
 import { resetCart } from "../slices/cartSlice";
-import OnScrollCartIcon from "./OnScrollCartIcon";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -208,15 +207,6 @@ const Header = () => {
                         {/* Submenu for Admin */}
                         {isAdminOpen && (
                           <ul className="absolute rounded bg-white shadow-md py-2 md:px-4 px-20 z-50">
-                            <li className="my-1">
-                              <Link to={"/admin/userlist"}>Users</Link>
-                            </li>
-                            <li className="my-1">
-                              <Link to={"/admin/productlist"}>Products</Link>
-                            </li>
-                            <li className="my-1">
-                              <Link to={"/admin/orderlist"}>Orders</Link>
-                            </li>
                             <li>
                               <Link to={"/admin/dashboard"}>Dashboard</Link>
                             </li>
@@ -279,51 +269,69 @@ const Header = () => {
 
         <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#" className="hover:text-gray-300 block px-3 py-2">
-              Home
-            </a>
-            <a href="#" className="hover:text-gray-300 block px-3 py-2">
-              About
-            </a>
-            <a href="#" className="hover:text-gray-300 block px-3 py-2">
-              Advice
-            </a>
-            <a href="#" className="hover:text-gray-300 block px-3 py-2">
-              Blogs
-            </a>
-            <a href="#" className="hover:text-gray-300 block px-3 py-2">
-              Contacts
-            </a>
+            <Link to={"/"}>
+              <p className="hover:text-gray-300 block px-3 py-2 cursor-pointer">
+                Home
+              </p>
+            </Link>
+
+            <Link to={"/about"}>
+              <p className="hover:text-gray-300 block px-3 py-2 cursor-pointer">
+                About
+              </p>
+            </Link>
+
+            {/* <Link>
+              <p className="hover:text-gray-300 block px-3 py-2 cursor-pointer">
+                Advice
+              </p>
+            </Link> */}
+
+            <Link to="/blogs">
+              <p className="hover:text-gray-300 block px-3 py-2 cursor-pointer">
+                Blogs
+              </p>
+            </Link>
+
+            <Link to="/contact">
+              <p className="hover:text-gray-300 block px-3 py-2 cursor-pointer">
+                Contacts
+              </p>
+            </Link>
+
+            <Link to="/shop">
+              <p className="hover:text-gray-300 block px-3 py-2 cursor-pointer">
+                Shop
+              </p>
+            </Link>
+
             <div ref={subMenuRefMob}>
               {userInfo && (
                 <div>
-                  <a
-                    href="#"
-                    className="hover:text-gray-300 block px-3 py-2"
+                  <p
+                    className="hover:text-gray-300 block px-3 py-2 cursor-pointer"
                     onClick={toggleFullNameDropdownMob}
                   >
                     Full Name
-                  </a>
+                  </p>
 
                   {/* Submenu for Full Name */}
                   {isFullNameOpenMob && (
                     <ul className="rounded bg-white shadow-md py-2 px-3 mt-1 w-36">
                       <li>
-                        <a
-                          href="#"
-                          className="hover:text-gray-500 block px-3 py-2"
-                        >
-                          Profile
-                        </a>
+                        <Link to={"/profile"}>
+                          <p className="hover:text-gray-500 block px-3 py-2 cursor-pointer">
+                            Profile
+                          </p>
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="#"
-                          className="hover:text-gray-500 block px-3 py-2"
+                        <p
+                          className="hover:text-gray-500 block px-3 py-2 cursor-pointer"
                           onClick={logoutHandler}
                         >
                           Logout
-                        </a>
+                        </p>
                       </li>
                     </ul>
                   )}
@@ -332,28 +340,22 @@ const Header = () => {
 
               {userInfo && userInfo.isAdmin && (
                 <div>
-                  <a
-                    href="#"
-                    className="hover:text-gray-300 block px-3 py-2"
+                  <p
+                    className="hover:text-gray-300 block px-3 py-2 cursor-pointer"
                     onClick={toggleAdminDropdownMob}
                   >
                     Admin
-                  </a>
+                  </p>
 
                   {/* Submenu for Admin */}
                   {isAdminOpenMob && (
                     <ul className=" rounded bg-white shadow-md py-2 px-3 mt-1 w-36">
-                      <li className="my-1">
-                        <Link to={"/admin/userlist"}>Users</Link>
-                      </li>
-
                       <li>
-                        <a
-                          href="#"
-                          className="hover:text-gray-500 block px-3 py-2"
-                        >
-                          Dashboard
-                        </a>
+                        <Link to={"/admin/dashboard"}>
+                          <p className="hover:text-gray-500 block px-3 py-2 cursor-pointer">
+                            Dashboard
+                          </p>
+                        </Link>
                       </li>
                     </ul>
                   )}
