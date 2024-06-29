@@ -64,6 +64,8 @@ const ProfileScreen = () => {
               <input
                 type="text"
                 id="name"
+                name="haha"
+                autoComplete="off"
                 placeholder="Enter name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}

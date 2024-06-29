@@ -6,6 +6,7 @@ import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-hot-toast";
 import CircularProgress from "@mui/material/CircularProgress";
 import Oauth from "../components/Oauth";
+import { HiOutlineArrowCircleLeft } from "react-icons/hi";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -49,9 +50,14 @@ const LoginScreen = () => {
       />
       <div className="flex flex-col justify-center items-center w-full lg:w-1/2">
         <div>
-          <div className="text-xl text-center font-bold lg:text-left">
-            <span className="text-green-600">&#9650;</span>
-            <span>KrishiPal</span>
+          <div className="flex items-center justify-center lg:justify-start gap-3">
+            <Link to="/">
+              <div className="flex gap-1 border-green-600 px-2 pr-3 py-1 border-[3px] rounded-full hover:bg-green-600 hover:text-white transition duration-100 text-green-600">
+                <HiOutlineArrowCircleLeft size={25} />
+                <span className="font-bold">Home</span>
+              </div>
+            </Link>
+            <span className="text-xl font-bold">KrishiPal</span>
           </div>
           <div className="text-3xl text-center font-bold lg:text-left mt-4">
             <h2>Hello,</h2>

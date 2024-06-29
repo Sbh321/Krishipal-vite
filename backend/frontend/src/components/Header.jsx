@@ -30,12 +30,11 @@ const Header = () => {
     }
   };
 
-  // Responsiveness:-
+  // Responsiveness:
 
   const [isOpen, setIsOpen] = useState(false);
   const [isFullNameOpen, setIsFullNameOpen] = useState(false);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
-
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const toggleCart = () => {
@@ -73,7 +72,7 @@ const Header = () => {
     };
   }, []);
 
-  //For mobile menu bar
+  // For mobile menu bar
   const [isFullNameOpenMob, setIsFullNameOpenMob] = useState(false);
   const [isAdminOpenMob, setIsAdminOpenMob] = useState(false);
 
@@ -112,8 +111,8 @@ const Header = () => {
         <div className="w-[98%] mx-auto">
           <div className="flex justify-between h-16">
             <div className="flex">
-              <div className=" flex items-center">
-                <span className=" text-green-700 font-medium text-3xl text-decoration-none">
+              <div className="flex items-center">
+                <span className="text-green-700 font-medium text-3xl text-decoration-none">
                   <Link to={"/"}>
                     <div className="w-[60px]">
                       <img
@@ -135,15 +134,14 @@ const Header = () => {
                 <Link to="/about">
                   <p className="hover:text-gray-500 px-3 py-2">About</p>
                 </Link>
-                {/* <p className=" hover:text-gray-500 px-3 py-2">Advice</p> */}
                 <Link to="/blogs">
-                  <p className=" hover:text-gray-500 px-3 py-2">Blogs</p>
+                  <p className="hover:text-gray-500 px-3 py-2">Blogs</p>
                 </Link>
                 <Link to="/contact">
-                  <p className=" hover:text-gray-500 px-3 py-2">Contact</p>
+                  <p className="hover:text-gray-500 px-3 py-2">Contact</p>
                 </Link>
                 <Link to="/shop">
-                  <p className=" hover:text-gray-500 px-3 py-2">Shop</p>
+                  <p className="hover:text-gray-500 px-3 py-2">Shop</p>
                 </Link>
               </div>
             </div>
@@ -169,7 +167,7 @@ const Header = () => {
                   <ul className="flex items-center">
                     <li className="relative group">
                       <p
-                        className=" hover:text-gray-500 px-3 py-2 select-none cursor-pointer"
+                        className="hover:text-gray-500 px-3 py-2 select-none cursor-pointer"
                         onClick={toggleFullNameDropdown}
                       >
                         {userInfo.name}
@@ -179,14 +177,20 @@ const Header = () => {
                       {isFullNameOpen && (
                         <ul className="absolute rounded bg-white shadow-md py-2 md:px-4 px-20 z-50">
                           <li className="my-1">
-                            <Link to={"/profile"}>
+                            <Link
+                              to={"/profile"}
+                              onClick={() => setIsFullNameOpen(false)}
+                            >
                               <p className="hover:text-gray-500">Profile</p>
                             </Link>
                           </li>
                           <li>
                             <a
                               className="hover:text-gray-500 select-none cursor-pointer"
-                              onClick={logoutHandler}
+                              onClick={() => {
+                                logoutHandler();
+                                setIsFullNameOpen(false);
+                              }}
                             >
                               <span>Log out</span>
                             </a>
@@ -198,7 +202,7 @@ const Header = () => {
                     {userInfo && userInfo.isAdmin && (
                       <li className="relative group">
                         <p
-                          className=" hover:text-gray-500 px-3 py-2 select-none cursor-pointer"
+                          className="hover:text-gray-500 px-3 py-2 select-none cursor-pointer"
                           onClick={toggleAdminDropdown}
                         >
                           Admin
@@ -208,7 +212,12 @@ const Header = () => {
                         {isAdminOpen && (
                           <ul className="absolute rounded bg-white shadow-md py-2 md:px-4 px-20 z-50">
                             <li>
-                              <Link to={"/admin/dashboard"}>Dashboard</Link>
+                              <Link
+                                to={"/admin/dashboard"}
+                                onClick={() => setIsAdminOpen(false)}
+                              >
+                                Dashboard
+                              </Link>
                             </li>
                           </ul>
                         )}
@@ -270,37 +279,46 @@ const Header = () => {
         <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link to={"/"}>
-              <p className="hover:text-gray-300 block px-3 py-2 cursor-pointer">
+              <p
+                className="hover:text-gray-300 block px-3 py-2 cursor-pointer"
+                onClick={() => setIsOpen(false)}
+              >
                 Home
               </p>
             </Link>
 
             <Link to={"/about"}>
-              <p className="hover:text-gray-300 block px-3 py-2 cursor-pointer">
+              <p
+                className="hover:text-gray-300 block px-3 py-2 cursor-pointer"
+                onClick={() => setIsOpen(false)}
+              >
                 About
               </p>
             </Link>
 
-            {/* <Link>
-              <p className="hover:text-gray-300 block px-3 py-2 cursor-pointer">
-                Advice
-              </p>
-            </Link> */}
-
             <Link to="/blogs">
-              <p className="hover:text-gray-300 block px-3 py-2 cursor-pointer">
+              <p
+                className="hover:text-gray-300 block px-3 py-2 cursor-pointer"
+                onClick={() => setIsOpen(false)}
+              >
                 Blogs
               </p>
             </Link>
 
             <Link to="/contact">
-              <p className="hover:text-gray-300 block px-3 py-2 cursor-pointer">
+              <p
+                className="hover:text-gray-300 block px-3 py-2 cursor-pointer"
+                onClick={() => setIsOpen(false)}
+              >
                 Contacts
               </p>
             </Link>
 
             <Link to="/shop">
-              <p className="hover:text-gray-300 block px-3 py-2 cursor-pointer">
+              <p
+                className="hover:text-gray-300 block px-3 py-2 cursor-pointer"
+                onClick={() => setIsOpen(false)}
+              >
                 Shop
               </p>
             </Link>
@@ -312,15 +330,23 @@ const Header = () => {
                     className="hover:text-gray-300 block px-3 py-2 cursor-pointer"
                     onClick={toggleFullNameDropdownMob}
                   >
-                    Full Name
+                    {userInfo.name}
                   </p>
 
                   {/* Submenu for Full Name */}
                   {isFullNameOpenMob && (
                     <ul className="rounded bg-white shadow-md py-2 px-3 mt-1 w-36">
                       <li>
-                        <Link to={"/profile"}>
-                          <p className="hover:text-gray-500 block px-3 py-2 cursor-pointer">
+                        <Link
+                          to={"/profile"}
+                          onClick={() => {
+                            setIsFullNameOpenMob(false);
+                          }}
+                        >
+                          <p
+                            className="hover:text-gray-500 block px-3 py-2 cursor-pointer"
+                            onClick={() => setIsOpen(false)}
+                          >
                             Profile
                           </p>
                         </Link>
@@ -328,7 +354,11 @@ const Header = () => {
                       <li>
                         <p
                           className="hover:text-gray-500 block px-3 py-2 cursor-pointer"
-                          onClick={logoutHandler}
+                          onClick={() => {
+                            logoutHandler();
+                            setIsFullNameOpenMob(false);
+                            setIsOpen(false);
+                          }}
                         >
                           Logout
                         </p>
@@ -349,9 +379,15 @@ const Header = () => {
 
                   {/* Submenu for Admin */}
                   {isAdminOpenMob && (
-                    <ul className=" rounded bg-white shadow-md py-2 px-3 mt-1 w-36">
+                    <ul className="rounded bg-white shadow-md py-2 px-3 mt-1 w-36">
                       <li>
-                        <Link to={"/admin/dashboard"}>
+                        <Link
+                          to={"/admin/dashboard"}
+                          onClick={() => {
+                            setIsAdminOpenMob(false);
+                            setIsOpen(false);
+                          }}
+                        >
                           <p className="hover:text-gray-500 block px-3 py-2 cursor-pointer">
                             Dashboard
                           </p>
@@ -362,12 +398,8 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <Link to="/shop">
-              <p className=" hover:text-gray-500 px-3 py-2">Shop</p>
-            </Link>
           </div>
         </div>
-        {/* <NavMenuMob isOpen={isOpen} /> */}
       </nav>
     </div>
   );

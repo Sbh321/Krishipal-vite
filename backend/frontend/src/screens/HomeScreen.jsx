@@ -5,13 +5,15 @@ import LatestProducts from "../components/LatestProducts";
 import SignupCard from "../components/SignupCard";
 import ExploreBtn from "../components/ExploreBtn";
 import OnScrollCartIcon from "../components/OnScrollCartIcon";
+import { useSelector } from "react-redux";
 
 const HomeScreen = () => {
+  const { userInfo } = useSelector((state) => state.auth);
   return (
     <>
       <OnScrollCartIcon />
       <About />
-      <SignupCard />
+      {!userInfo && <SignupCard />}
       <LatestProducts />
       <ExploreBtn />
     </>

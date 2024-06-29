@@ -11,66 +11,63 @@ import {
   BsFillGearFill,
   BsPaperclip,
 } from "react-icons/bs";
+import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import "../Dashboard.css";
 
-function Sidebar({ openSidebarToggle, OpenSidebar }) {
+function Sidebar() {
   return (
-    <aside
-      id="sidebar"
-      className={openSidebarToggle ? "sidebar-responsive" : ""}
-    >
-      {/* <div className="sidebar-title">
-        <div className="sidebar-brand">
-          <BsCart3 className="icon_header" /> SHOP
-        </div>
-        <span className="icon close_icon" onClick={OpenSidebar}>
-          X
-        </span>
-      </div> */}
-
-      <ul style={{ marginTop: "50px" }} className="sidebar-list">
+    <aside id="sidebar">
+      <Link to="/" className="main-link">
+        <li className="sidebar-list-item rounded-lg  mt-2">
+          <div className="flex items-center main">
+            <FaHome className="icon mr-6" size={25} />
+            <span>Krishipal</span>
+          </div>
+        </li>
+      </Link>
+      <ul className="sidebar-list mt-6">
         {/* change a tags to link later on */}
 
         <Link to="/admin/dashboard">
-          <li className="sidebar-list-item flex items-center">
+          <li className="sidebar-list-item rounded-lg flex items-center">
             <BsGrid1X2Fill className="icon mr-6" /> <span>Dashboard</span>
           </li>
         </Link>
 
         <Link to="/admin/dashboard/users">
-          <li className="sidebar-list-item flex items-center">
+          <li className="sidebar-list-item rounded-lg flex items-center">
             <BsPeopleFill className="icon" /> Users
           </li>
         </Link>
 
         <Link to="/admin/dashboard/products">
-          <li className="sidebar-list-item flex items-center">
+          <li className="sidebar-list-item rounded-lg flex items-center">
             <BsFillArchiveFill className="icon" /> Products
           </li>
         </Link>
 
         <Link to="/admin/dashboard/orders">
-          <li className="sidebar-list-item flex items-center">
+          <li className="sidebar-list-item rounded-lg flex items-center">
             <BsFillArchiveFill className="icon" /> Orders
           </li>
         </Link>
 
         <Link to="/admin/dashboard/categories">
-          <li className="sidebar-list-item flex items-center">
+          <li className="sidebar-list-item rounded-lg flex items-center">
             <BsFillGrid3X3GapFill className="icon" /> Categories
           </li>
         </Link>
 
         <Link to="/admin/dashboard/admins">
-          <li className="sidebar-list-item flex items-center">
+          <li className="sidebar-list-item rounded-lg flex items-center">
             <BsPersonFillGear className="icon" /> Admins
           </li>
         </Link>
 
         <Link to="/admin/dashboard/blogs">
-          <li className="sidebar-list-item flex items-center">
+          <li className="sidebar-list-item rounded-lg flex items-center">
             <BsPaperclip className="icon" /> Blogs
           </li>
         </Link>

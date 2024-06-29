@@ -47,13 +47,13 @@ import PrivateRoute from "./routes/PrivateRoute.jsx";
 import AdminRoute from "./routes/AdminRoute.jsx";
 import DashboardRoute from "./routes/DashboardRoute.jsx";
 
+import ScrollToTop from "./components/ScrollToTop.jsx";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<App />}>
         <Route index={true} path="/" element={<HomeScreen />} />
-        <Route path="/login" element={<LoginScreen />} />
-        <Route path="/register" element={<RegisterScreen />} />
         <Route path="/shop" element={<ShopScreen />} />
         <Route path="/shop/products" element={<ProductsScreen />} />
         <Route path="/cart" element={<CartScreen />} />
@@ -86,19 +86,18 @@ const router = createBrowserRouter(
           <Route path="/admin/userlist" element={<UserListScreen />} />
           {/* <Route path="/admin/user/:id/edit" element={<UserEditScreen />} /> */}
         </Route>
+      </Route>
+      <Route path="/login" element={<LoginScreen />} />
+      <Route path="/register" element={<RegisterScreen />} />
 
-        <Route path="" element={<DashboardRoute />}>
-          <Route path="/admin/dashboard" element={<AdminHome />} />
-          <Route path="/admin/dashboard/users" element={<UserList />} />
-          <Route path="/admin/dashboard/products" element={<ProductList />} />
-          <Route path="/admin/dashboard/orders" element={<OrderList />} />
-          <Route
-            path="/admin/dashboard/categories"
-            element={<CategoryList />}
-          />
-          <Route path="/admin/dashboard/admins" element={<AdminListScreen />} />
-          <Route path="/admin/dashboard/blogs" element={<BlogList />} />
-        </Route>
+      <Route path="" element={<DashboardRoute />}>
+        <Route path="/admin/dashboard" element={<AdminHome />} />
+        <Route path="/admin/dashboard/users" element={<UserList />} />
+        <Route path="/admin/dashboard/products" element={<ProductList />} />
+        <Route path="/admin/dashboard/orders" element={<OrderList />} />
+        <Route path="/admin/dashboard/categories" element={<CategoryList />} />
+        <Route path="/admin/dashboard/admins" element={<AdminListScreen />} />
+        <Route path="/admin/dashboard/blogs" element={<BlogList />} />
       </Route>
     </>
   )
