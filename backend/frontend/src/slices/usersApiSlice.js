@@ -57,6 +57,13 @@ export const usersApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["Users"],
     }),
+    googleOauth: builder.mutation({
+      query: (data) => ({
+        url: `/api/oauth/google`,
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -69,4 +76,5 @@ export const {
   useDeleteUserMutation,
   useGetUserDetailsQuery,
   useUpdateUserMutation,
+  useGoogleOauthMutation,
 } = usersApiSlice;

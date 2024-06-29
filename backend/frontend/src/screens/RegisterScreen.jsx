@@ -5,6 +5,7 @@ import { useRegisterMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-hot-toast";
 import CircularProgress from "@mui/material/CircularProgress";
+import Oauth from "../components/Oauth";
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
@@ -119,14 +120,11 @@ const RegisterScreen = () => {
             )}
           </form>
         </div>
-        {/* <div className="text-center space-y-4 mt-4">
-          <span>or</span>
-          <div className="flex justify-center items-center gap-8">
-            <h4>Google</h4>
-            <h4>Facebook</h4>
-            <h4>GitHub</h4>
-          </div>
-        </div> */}
+
+        {/* oauth */}
+        <div className="mt-4">
+          <Oauth />
+        </div>
         <div className="mt-4">
           Already have an account?{" "}
           <span className="text-blue-600 cursor-pointer hover:text-blue-400">

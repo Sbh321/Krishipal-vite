@@ -12,6 +12,8 @@ import uploadRoutes from "./routes/uploadRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import blogRoutes from "./routes/blogRoutes.js";
 
+import authRoutes from "./routes/authRoutes.js";
+
 import cors from "cors";
 
 connectDB();
@@ -40,6 +42,7 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/blogs", blogRoutes);
+app.use("/api/oauth", authRoutes);
 
 app.get("/api/config/paypal", (req, res) =>
   res.send({ clientId: process.env.PAYPAL_CLIENT_ID })

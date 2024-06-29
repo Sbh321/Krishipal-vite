@@ -184,6 +184,47 @@ const updateUser = asyncHandler(async (req, res) => {
   }
 });
 
+const googleOauth = asyncHandler(async (req, res) => {
+  const { name, email } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+
+    if (user) {
+      generateToken(res, user._id);
+      res.status(200).json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: user.isAdmin,
+      });
+    } else {
+      const generatePassword = email + process.env.JWT_SECRET;
+
+      const newUser = await User.create({
+        name,
+        email,
+        password: generatePassword,
+      });
+
+      generateToken(res, newUser._id);
+
+      res.status(201).json({
+        _id: newUser._id,
+        name: newUser.name,
+        email: newUser.email,
+      });
+
+      if (!newUser) {
+        res.status(400);
+        throw new Error("Invalid user data");
+      }
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
 export {
   authUser,
   registerUser,
@@ -194,4 +235,5 @@ export {
   getUsersById,
   deleteUser,
   updateUser,
+  googleOauth,
 };
