@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
@@ -11,9 +12,17 @@ import {
   useDeliverOrderMutation,
 } from "../slices/ordersApiSlice";
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import Confirmation from "../dashboard/confirm/Confirmation";
+import { useDeleteOrderMutation } from "../slices/ordersApiSlice";
 
 const OrderScreen = () => {
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  const navigate = useNavigate();
+
   const { id: orderId } = useParams();
+
+  const [deleteOrder] = useDeleteOrderMutation();
 
   const {
     data: order,
@@ -101,6 +110,20 @@ const OrderScreen = () => {
       toast.success("Order delivered");
     } catch (error) {
       toast.error(error?.data?.message || error.message);
+    }
+  };
+
+  const handleCancelOrder = () => {
+    setShowConfirmation(true);
+  };
+
+  const handleConfirmation = async (confirmed) => {
+    setShowConfirmation(false);
+    if (confirmed) {
+      await deleteOrder(orderId);
+      toast.success("Order deleted successfully");
+    } else {
+      toast.error("Order deletion canceled");
     }
   };
 
@@ -212,7 +235,27 @@ const OrderScreen = () => {
 
         <div className="md:w-1/3 md:pl-4">
           <div className="bg-white rounded-lg shadow-md p-4 mb-4">
-            <h2 className="text-xl font-bold mb-2">Order Summary</h2>
+            <div className="flex justify-between">
+              <h2 className="text-xl font-bold mb-2">Order Summary</h2>
+              {order.isPaid && order.isDelivered && (
+                <button
+                  className=" px-4 py-2 bg-red-500 rounded hover:bg-red-600 text-white transition-colors duration-300"
+                  onClick={handleCancelOrder}
+                >
+                  Delete Order
+                </button>
+              )}
+
+              {!order.isPaid && !order.isDelivered && (
+                <button
+                  className=" px-4 py-2 bg-red-500 rounded hover:bg-red-600 text-white transition-colors duration-300"
+                  onClick={handleCancelOrder}
+                >
+                  Cancel Order
+                </button>
+              )}
+            </div>
+
             <div className="mb-2 flex justify-between">
               <span>Items</span>
               <span>Rs.{order.itemsPrice}</span>
@@ -281,6 +324,12 @@ const OrderScreen = () => {
           </div>
         </div>
       </div>
+      {showConfirmation && (
+        <Confirmation
+          message="Are you sure you want to delete this user?"
+          onConfirm={handleConfirmation}
+        />
+      )}
     </div>
   );
 };
