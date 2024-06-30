@@ -6,15 +6,17 @@ import ScrollToTop from "./components/ScrollToTop.jsx";
 
 const App = () => {
   return (
-    <>
+    //Here the div is flexed to column with min height of screen which takes all the visible screen height and compoents other than main will take onl that much height which is required and main will take the remaining height
+
+    <div className="flex flex-col min-h-screen">
       <ScrollToTop />
       <Toaster />
       <Header />
-      <main>
+      <main className="flex-1">
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

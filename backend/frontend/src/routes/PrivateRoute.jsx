@@ -6,11 +6,13 @@ import Footer from "../components/Footer";
 const PrivateRoute = () => {
   const { userInfo } = useSelector((state) => state.auth);
   return userInfo ? (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <Outlet />
+      <main className="flex-1">
+        <Outlet />
+      </main>
       <Footer />
-    </>
+    </div>
   ) : (
     <Navigate to="/login" replace />
   );
