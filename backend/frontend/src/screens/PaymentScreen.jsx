@@ -26,7 +26,7 @@ const PaymentScreen = () => {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="sm:container mx-5 mt-4">
       <div className="max-w-xl mx-auto">
         <div className="flex justify-center mb-4">
           <CheckOutSteps step1 step2 step3 />

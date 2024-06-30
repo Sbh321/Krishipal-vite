@@ -29,7 +29,7 @@ const CartScreen = () => {
   };
 
   return (
-    <div className="container">
+    <div className="sm:container mx-5">
       <div className="">
         <p className="text-4xl mt-4">Shopping Cart</p>
       </div>

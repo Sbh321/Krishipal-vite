@@ -55,7 +55,7 @@ const ProfileScreen = () => {
   };
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="sm:container mx-5 py-8">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* User Profile Section */}
         <div className="lg:col-span-1">

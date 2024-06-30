@@ -38,7 +38,7 @@ const ProductsScreen = () => {
   };
 
   return (
-    <div className="p-4 container">
+    <div className="p-4 sm:container mx-5">
       <OnScrollCartIcon />
       <h1 className="text-4xl text-accent">All Products</h1>
       <form onSubmit={handleSearch} className="mb-4">

@@ -12,7 +12,7 @@ const BlogsScreen = () => {
   const { data: blogs, isLoading, error } = useGetBlogsQuery();
 
   return (
-    <div className="container pt-16">
+    <div className="sm:container mx-5 pt-16">
       {isLoading ? (
         <div className="flex items-center justify-center gap-2">
           <CircularProgress size={64} style={{ color: "#718096" }} />
@@ -28,15 +28,15 @@ const BlogsScreen = () => {
               <p className="text-gray-600 mt-2">Click to read them</p>
             </div>
           </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 pt-8 gap-4">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 pt-8 gap-4 gap-y-6">
             {blogs.map((blog) => (
               <BlogCard
                 key={blog._id}
                 id={blog._id}
                 img={blog.image}
                 title={blog.title}
-                // date={el.date}
-                // comment={el.comment}
+                date={blog.createdAt}
+                comments={blog.comments}
               />
             ))}
           </div>

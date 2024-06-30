@@ -65,7 +65,7 @@ const ProductScreen = () => {
   return (
     <div>
       <OnScrollCartIcon />
-      <div className="container my-3">
+      <div className="sm:container mx-5 my-3">
         <div className="flex px-3">
           <Link to="/">
             <button className="text-white font-medium lg:w-[100px] lg:h-[40px] w-[60px] h-[30px] bg-accent border hover:border-slate-600 hover:border-2 hover:bg-white transition-all hover:text-slate-600 rounded-full">

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="container mt-6">
+    <div className="sm:container mx-5 mt-6">
       {/* <h3 className="font-bold text-2xl my-2">Best Selling</h3> */}
       <div className="grid xl:grid-cols-2 xl:grid-rows-2 gap-8">
         <div className="xl:col-span-2 xl:row-start-1 xl:row-end-[-1] relative">

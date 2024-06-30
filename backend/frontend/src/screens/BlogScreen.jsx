@@ -42,7 +42,7 @@ const BlogScreen = () => {
   };
 
   return (
-    <div className="container my-3">
+    <div className="sm:container mx-5 my-3">
       <div className="flex px-3">
         <Link to="/blogs">
           <button className="text-white font-medium lg:w-[100px] lg:h-[40px] w-[60px] h-[30px] bg-accent border hover:border-slate-600 hover:border-2 hover:bg-white transition-all hover:text-slate-600 rounded-full">
@@ -110,7 +110,7 @@ const BlogScreen = () => {
             </div>
           </div>
 
-          <div className="review mt-8 lg:mt-0">
+          <div className="review mt-8 lg:mt-4">
             <h2 className="text-3xl font-bold mb-4">Comments</h2>
 
             <div className="md:flex gap-5">

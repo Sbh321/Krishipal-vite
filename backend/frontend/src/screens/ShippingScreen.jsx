@@ -25,7 +25,7 @@ const ShippingScreen = () => {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="sm:container mx-5 mt-4">
       <div className="max-w-xl mx-auto">
         <CheckOutSteps step1 step2 />
         <h1 className="text-2xl font-bold mb-4">Shipping</h1>

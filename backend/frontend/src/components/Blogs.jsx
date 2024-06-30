@@ -9,7 +9,7 @@ const Blogs = () => {
   const { data: blogs, isLoading, error } = useGetLatestBlogQuery();
 
   return (
-    <div className="container pt-16">
+    <div className="sm:container mx-5 pt-16">
       <h2 className="font-bold text-2xl">Latest News</h2>
       <p className="text-gray-500">
         Present posts in a best way to highlight interesting moments of your
@@ -36,8 +36,8 @@ const Blogs = () => {
                 id={el._id}
                 img={el.image}
                 title={el.title}
-                // date={el.date}
-                // comment={el.comment}
+                date={el.createdAt}
+                comments={el.comments}
               />
             ))
           ) : (

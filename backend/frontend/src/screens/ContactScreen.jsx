@@ -4,7 +4,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 const ContactScreen = () => {
   return (
-    <div className="container mx-auto py-8">
+    <div className="sm:container mx-5 py-8">
       <div className="text-center">
         <h1 className="text-4xl font-bold my-7">Contact Us</h1>
         <p className="text-gray-600 mb-8">

@@ -9,7 +9,7 @@ const LatestProducts = () => {
   const { data: products, isLoading, error } = useGetLatestProductQuery();
 
   return (
-    <div className="container pt-16">
+    <div className="sm:container mx-5 pt-16">
       {isLoading ? (
         <div className="flex items-center justify-center gap-2">
           <CircularProgress size={64} style={{ color: "#718096" }} />
