@@ -7,46 +7,25 @@ import Paginate from "../components/Paginate";
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
 import OnScrollCartIcon from "../components/OnScrollCartIcon";
+import { useParams } from "react-router-dom";
 
 const ProductsScreen = () => {
   useEffect(() => {
     document.title = "All Products - Krishipal";
   }, []);
 
-  const dispatch = useDispatch();
-  const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
+  const { pageNumber } = useParams();
 
-  const [keyword, setKeyword] = useState(queryParams.get("keyword") || "");
-  const [pageNumber, setPageNumber] = useState(
-    Number(queryParams.get("page")) || 1
-  );
-
-  const { data, isLoading, isError } = useGetProductsQuery({
-    keyword: keyword || undefined,
-    pageNumber: pageNumber,
-  });
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    window.location.href = `/products?keyword=${keyword}&page=1`;
-  };
-
-  const handlePageChange = (page) => {
-    setPageNumber(page);
-    window.location.href = `/products?keyword=${keyword}&page=${page}`;
-  };
+  const { data, isLoading, isError } = useGetProductsQuery({ pageNumber });
 
   return (
     <div className="p-4 sm:container mx-5">
       <OnScrollCartIcon />
       <h1 className="text-4xl text-accent">All Products</h1>
-      <form onSubmit={handleSearch} className="mb-4">
+      <form className="mb-4">
         <input
           type="text"
           placeholder="Search Products..."
-          value={keyword}
-          onChange={(e) => setKeyword(e.target.value)}
           className=" px-4 py-2 rounded-lg text-2xl border border-gray-500 text-green-800 focus:outline-none focus:ring focus:border-green-400 m-auto w-80 mt-3"
         />
       </form>
@@ -67,12 +46,7 @@ const ProductsScreen = () => {
               <ProductCard key={product._id} product={product} />
             ))}
           </div>
-          <Paginate
-            pages={data.totalPages}
-            page={pageNumber}
-            onPageChange={handlePageChange}
-            keyword={keyword}
-          />
+          <Paginate pages={data.pages} page={data.page} />
         </>
       )}
     </div>

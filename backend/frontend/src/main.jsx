@@ -56,6 +56,10 @@ const router = createBrowserRouter(
         <Route index={true} path="/" element={<HomeScreen />} />
         <Route path="/shop" element={<ShopScreen />} />
         <Route path="/shop/products" element={<ProductsScreen />} />
+        <Route
+          path="/shop/products/page/:pageNumber"
+          element={<ProductsScreen />}
+        />
         <Route path="/cart" element={<CartScreen />} />
         <Route path="/product/:id" element={<ProductScreen />} />
         <Route path="/blogs/:id" element={<BlogScreen />} />

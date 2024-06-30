@@ -126,7 +126,7 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="md:flex hidden">
+            <div className="md:flex hidden md:ml-28">
               <div className="ml-auto flex items-center lg:gap-6">
                 <Link to="/">
                   <p className="hover:text-gray-500 px-3 py-2">Home</p>
@@ -142,6 +142,9 @@ const Header = () => {
                 </Link>
                 <Link to="/shop">
                   <p className="hover:text-gray-500 px-3 py-2">Shop</p>
+                </Link>
+                <Link to="/shop/products">
+                  <p className="hover:text-gray-500 px-3 py-2">Search</p>
                 </Link>
               </div>
             </div>
@@ -320,6 +323,15 @@ const Header = () => {
                 onClick={() => setIsOpen(false)}
               >
                 Shop
+              </p>
+            </Link>
+
+            <Link to="/shop/products">
+              <p
+                className="hover:text-gray-300 block px-3 py-2 cursor-pointer"
+                onClick={() => setIsOpen(false)}
+              >
+                Search
               </p>
             </Link>
 

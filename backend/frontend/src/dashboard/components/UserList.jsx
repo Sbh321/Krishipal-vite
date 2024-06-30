@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import MUIDataTable from "mui-datatables";
-import { Link } from "react-router-dom";
 import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
 import UserEditModal from "../modals/UserEditModal";
 import {
@@ -41,11 +40,6 @@ const UserList = () => {
     setCurrentUserId(userId);
     setIsModalOpen(true);
   };
-
-  // const handleCustomButtonClick = () => {
-  //   toast("Custom Button Clicked!");
-  //   console.log("Custom Button Clicked!");
-  // };
 
   const { data: users, refetch, error, isLoading } = useGetUsersQuery();
 
