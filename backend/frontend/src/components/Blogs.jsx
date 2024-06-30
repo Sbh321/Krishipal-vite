@@ -8,8 +8,6 @@ const Blogs = () => {
   // Fetching the latest blogs
   const { data: blogs, isLoading, error } = useGetLatestBlogQuery();
 
-  console.log(blogs);
-
   return (
     <div className="container pt-16">
       <h2 className="font-bold text-2xl">Latest News</h2>

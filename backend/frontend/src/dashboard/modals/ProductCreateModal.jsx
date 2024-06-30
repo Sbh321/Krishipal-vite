@@ -26,7 +26,6 @@ const ProductCreateModal = ({ closeModal }) => {
   useEffect(() => {
     if (categoriesData) {
       setCategories(categoriesData);
-      console.log(categoriesData);
     } else {
       refetch();
     }

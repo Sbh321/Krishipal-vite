@@ -32,7 +32,7 @@ const FeatureSectionSeeds = () => {
     <div className="container pt-16">
       <div className="lg:flex justify-between items-center">
         <div>
-          <h3 className="font-medium text-2xl">Featured Products</h3>
+          <h3 className="font-bold text-2xl">Featured Products</h3>
           <p className="text-gray-600 mt-2">
             Experience agriculture goodness online! Explore our selection of
             fruits and vegetables seeds and chemicals at the best prices. Shop

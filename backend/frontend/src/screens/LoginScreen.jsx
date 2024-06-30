@@ -78,6 +78,7 @@ const LoginScreen = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              autoComplete="login-email"
             />
             <input
               type="password"
@@ -86,6 +87,7 @@ const LoginScreen = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              autoComplete="login-password"
             />
             <div className="text-blue-600 cursor-pointer hover:text-blue-400">
               Forgot your password?

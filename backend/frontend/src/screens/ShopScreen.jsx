@@ -10,8 +10,8 @@ const ShopScreen = () => {
   return (
     <>
       <OnScrollCartIcon />
-      <Category />
       <Hero />
+      <Category />
       <FeatureSectionSeeds />
       <Blogs />
       <Services />

@@ -5,8 +5,6 @@ import Blog from "../models/blogModel.js";
 // @route GET /api/blogs/latest
 // @access Public
 const getLatestBlogs = asyncHandler(async (req, res) => {
-  console.log("reached here");
-
   const blogs = await Blog.find({})
     .sort({ createdAt: -1 }) // Sort in descending order by createdAt field
     .limit(3); // Limit the result to 3 blogs

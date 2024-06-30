@@ -75,6 +75,7 @@ const RegisterScreen = () => {
           <form
             onSubmit={submitHandler}
             className="mt-8 w-[80%] lg:w-96 mx-auto space-y-4"
+            autoComplete="off"
           >
             <h4>Register to create an account</h4>
             <input
@@ -84,6 +85,7 @@ const RegisterScreen = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              autoComplete="new-name"
             />
             <input
               type="email"
@@ -92,6 +94,7 @@ const RegisterScreen = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              autoComplete="new-email"
             />
             <input
               type="password"
@@ -100,6 +103,7 @@ const RegisterScreen = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              autoComplete="new-password"
             />
             <input
               type="password"
@@ -108,6 +112,7 @@ const RegisterScreen = () => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
+              autoComplete="new-password-confirm"
             />
 
             <button

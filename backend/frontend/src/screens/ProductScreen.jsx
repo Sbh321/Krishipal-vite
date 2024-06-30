@@ -106,7 +106,7 @@ const ProductScreen = () => {
               <div className="lg:w-2/6 pr-8">
                 <div className="bg-white">
                   <div className="px-4 py-2 border-b border-gray-300">
-                    <p class="text-3xl">{product.name}</p>
+                    <p className="text-3xl">{product.name}</p>
                   </div>
                   <div className="px-4 py-2 lg:flex gap-2 border-b border-gray-300">
                     <div className="text-yellow-400 flex gap-[2px] text-[20px]">
@@ -146,7 +146,7 @@ const ProductScreen = () => {
                   <div className="py-2 px-4 border-b border-gray-300">
                     {product.countInStock > 0 && (
                       <div className="flex">
-                        <label for="quantity">Quantity:</label>
+                        <label htmlFor="quantity">Quantity:</label>
                         <div className="flex items-center justify-center flex-grow">
                           <select
                             id="quantity"
@@ -223,7 +223,7 @@ const ProductScreen = () => {
                     {userInfo ? (
                       <form onSubmit={submitHandler}>
                         <div className="my-4">
-                          <label for="rating" className="block">
+                          <label htmlFor="rating" className="block">
                             Rating
                           </label>
                           <select
@@ -241,7 +241,7 @@ const ProductScreen = () => {
                           </select>
                         </div>
                         <div className="my-4">
-                          <label for="comment" className="block">
+                          <label htmlFor="comment" className="block">
                             Comment
                           </label>
                           <textarea

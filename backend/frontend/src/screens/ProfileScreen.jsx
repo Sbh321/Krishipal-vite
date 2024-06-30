@@ -56,7 +56,11 @@ const ProfileScreen = () => {
         {/* User Profile Section */}
         <div className="lg:col-span-1">
           <h2 className="text-2xl font-bold mb-4">User Profile</h2>
-          <form onSubmit={submitHandler} className="space-y-4">
+          <form
+            onSubmit={submitHandler}
+            className="space-y-4"
+            autoComplete="off"
+          >
             <div>
               <label htmlFor="name" className="block text-gray-700">
                 Name
@@ -82,6 +86,7 @@ const ProfileScreen = () => {
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                autoComplete="profile-email"
                 className="mt-1 block w-full border border-gray-500 rounded-md shadow-sm focus:border-blue-400 focus:ring focus:ring-blue-400 focus:ring-opacity-50 p-1"
               />
             </div>
@@ -95,6 +100,7 @@ const ProfileScreen = () => {
                 placeholder="Enter password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                autoComplete="profile-password"
                 className="mt-1 block w-full border border-gray-500 rounded-md shadow-sm focus:border-blue-400 focus:ring focus:ring-blue-400 focus:ring-opacity-50 p-1"
               />
             </div>
@@ -108,6 +114,7 @@ const ProfileScreen = () => {
                 placeholder="Confirm password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+                autoComplete="profile-confirm-password"
                 className="mt-1 block w-full border border-gray-500 rounded-md shadow-sm focus:border-blue-400 focus:ring focus:ring-blue-400 focus:ring-opacity-50 p-1"
               />
             </div>

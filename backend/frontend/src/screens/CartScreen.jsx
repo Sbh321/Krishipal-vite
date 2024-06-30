@@ -22,6 +22,7 @@ const CartScreen = () => {
   const checkOutHandler = () => {
     navigate("/login/?redirect=/shipping");
   };
+
   return (
     <div className="container">
       <div className="">
@@ -85,7 +86,7 @@ const CartScreen = () => {
         </div>
 
         <div className="md:w-1/3 md:mt-0 mt-3">
-          <div class="border border-gray-300 rounded-md">
+          <div className="border border-gray-300 rounded-md">
             <div className="py-2 px-4">
               <p className="text-3xl">
                 Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
@@ -101,10 +102,10 @@ const CartScreen = () => {
               </p>
             </div>
 
-            <div className=" py-2 px-4 border-b border-gray-300">
+            <div className="py-2 px-4 border-b border-gray-300">
               <button
                 type="button"
-                class="bg-accent hover:bg-accentDark text-white px-4 py-2 mt-2 rounded cursor-pointer"
+                className="bg-accent hover:bg-accentDark text-white px-4 py-2 mt-2 rounded cursor-pointer"
                 disabled={cartItems.length === 0}
                 onClick={checkOutHandler}
               >

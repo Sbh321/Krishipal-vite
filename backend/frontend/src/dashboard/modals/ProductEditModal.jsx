@@ -46,7 +46,6 @@ const ProductEditModal = ({ closeModal, productId }) => {
   useEffect(() => {
     if (categoriesData) {
       setCategories(categoriesData);
-      console.log(categoriesData);
     } else {
       refetch();
     }

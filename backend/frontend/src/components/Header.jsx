@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
 import { resetCart } from "../slices/cartSlice";
+import toast from "react-hot-toast";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -24,9 +25,9 @@ const Header = () => {
       dispatch(logout());
       dispatch(resetCart());
       navigate("/login");
-      console.log("Logged out");
+      toast.success("Logged out successfully!");
     } catch (error) {
-      console.log(error);
+      toast.error("Error logging out");
     }
   };
 
@@ -46,7 +47,6 @@ const Header = () => {
   };
 
   const toggleFullNameDropdown = () => {
-    console.log("click full name");
     setIsFullNameOpen(!isFullNameOpen);
   };
 
