@@ -144,10 +144,11 @@ const CategoryEditModal = ({ closeModal, categoryId }) => {
                 <input
                   type="text"
                   id="image"
-                  placeholder="Enter Image URL"
+                  placeholder="Upload Image"
                   value={image}
                   onChange={(e) => setImage(e.target.value)}
                   className="w-2/3 p-2 border border-gray-300 rounded mr-2 text-gray-700"
+                  readOnly
                 />
                 <input
                   type="file"

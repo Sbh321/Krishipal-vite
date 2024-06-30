@@ -125,10 +125,11 @@ const CategoryCreateModal = ({ closeModal }) => {
               <input
                 type="text"
                 id="image"
-                placeholder="Enter Image URL"
+                placeholder="Upload Image"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
                 className="w-1/3 p-2 border border-gray-300 rounded mr-2 text-gray-700"
+                readOnly
               />
               <input
                 type="file"
@@ -159,7 +160,7 @@ const CategoryCreateModal = ({ closeModal }) => {
             <button
               type="button"
               onClick={handleClose}
-              className="bg-gray-500 text-white px-4 py-2 rounded mr-2"
+              className="bg-red-500 text-white px-4 py-2 rounded mr-2"
             >
               Cancel
             </button>

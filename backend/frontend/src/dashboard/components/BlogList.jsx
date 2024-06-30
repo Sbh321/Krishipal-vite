@@ -51,8 +51,10 @@ const BlogList = () => {
       await deleteBlog(deleteBlogId); // Use the deleteBlogId state here
       toast.success("Blog deleted successfully");
       refetch();
+      toast.success("Blog deleted successfully");
       console.log("Blog deleted!");
     } else {
+      toast.error("Deletion canceled");
       console.log("Deletion canceled.");
     }
   };

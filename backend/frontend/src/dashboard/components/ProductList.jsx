@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import MUIDataTable from "mui-datatables";
 import {
   useGetProdQuery,
@@ -16,6 +16,8 @@ import CustomToolbar from "./CustomToolbar";
 import ProductCreateModal from "../modals/ProductCreateModal";
 
 const ProductList = () => {
+  const { data: products, isLoading, error, refetch } = useGetProdQuery();
+
   const options = {
     filter: false,
     filterType: "checkbox",
@@ -39,10 +41,10 @@ const ProductList = () => {
     useDeleteProductMutation();
 
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [deleteProductId, setDeleteProductId] = useState(null); // State to store the id to delete
+  const [deleteProductId, setDeleteProductId] = useState(null);
 
   const handleDelete = (productId) => {
-    setDeleteProductId(productId); // Set the userId to delete
+    setDeleteProductId(productId);
     setShowConfirmation(true);
   };
 
@@ -51,10 +53,9 @@ const ProductList = () => {
     if (confirmed) {
       await deleteProduct(deleteProductId); // Use the deleteUserId state here
       toast.success("Product deleted successfully");
-      // You might need to fetch products again after deletion
-      console.log("Product deleted!");
+      refetch();
     } else {
-      console.log("Deletion canceled.");
+      toast.error("Product deletion cancelled");
     }
   };
 
@@ -65,8 +66,6 @@ const ProductList = () => {
     setCurrentProductId(productId);
     setIsModalOpen(true);
   };
-
-  const { data: products, isLoading, error } = useGetProdQuery();
 
   const handleDescriptionButtonClick = (description) => {
     setDescription(description); // Set description for modal
@@ -158,7 +157,10 @@ const ProductList = () => {
       {isModalOpen && (
         <ProductEditModal
           productId={currentProductId}
-          closeModal={() => setIsModalOpen(false)}
+          closeModal={() => {
+            setIsModalOpen(false);
+            refetch();
+          }}
         />
       )}
       {showConfirmation && (
@@ -168,7 +170,12 @@ const ProductList = () => {
         />
       )}
       {isCreateModalOpen && (
-        <ProductCreateModal closeModal={() => setIsCreateModalOpen(false)} />
+        <ProductCreateModal
+          closeModal={() => {
+            setIsCreateModalOpen(false);
+            refetch();
+          }}
+        />
       )}
       {isDescriptionModalOpen && (
         <ProductDescriptionModal

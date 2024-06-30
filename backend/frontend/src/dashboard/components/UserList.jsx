@@ -11,7 +11,6 @@ import { toast } from "react-hot-toast";
 import Alert from "@mui/material/Alert";
 import CircularProgress from "@mui/material/CircularProgress";
 import Confirmation from "../confirm/Confirmation";
-// import CustomToolbar from "./CustomToolbar"; // Adjust the path as needed
 
 const UserList = () => {
   const [deleteUser, { isLoading: loadingDelete }] = useDeleteUserMutation();
@@ -30,9 +29,8 @@ const UserList = () => {
       await deleteUser(deleteUserId); // Use the deleteUserId state here
       toast.success("User deleted successfully");
       refetch();
-      console.log("User deleted!");
     } else {
-      console.log("Deletion canceled.");
+      toast.error("User deletion cancelled");
     }
   };
 

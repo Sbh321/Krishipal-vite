@@ -78,9 +78,8 @@ const ProductCreateModal = ({ closeModal }) => {
         description,
       };
       await createProduct(product).unwrap();
-      toast.success("Product created successfully!");
       handleClose();
-      navigate("/admin/dashboard/products");
+      toast.success("Product created successfully!");
     } catch (err) {
       setError(err?.data?.message || err.message);
       toast.error(error || "Failed to create product. Please try again.");
@@ -168,10 +167,11 @@ const ProductCreateModal = ({ closeModal }) => {
               <input
                 type="text"
                 id="image"
-                placeholder="Enter Image URL"
+                placeholder="Upload Image"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
                 className="w-2/3 p-2 border border-gray-300 rounded mr-2 text-gray-700"
+                readOnly
               />
               <input
                 type="file"

@@ -43,14 +43,6 @@ const ProductEditModal = ({ closeModal, productId }) => {
     refetch,
   } = useGetProductDetailsQuery(productId);
 
-  useEffect(() => {
-    if (categoriesData) {
-      setCategories(categoriesData);
-    } else {
-      refetch();
-    }
-  }, [categoriesData, refetch]);
-
   const [updateProduct, { isLoading: isLoadingUpdate }] =
     useUpdateProductMutation();
 
@@ -87,10 +79,9 @@ const ProductEditModal = ({ closeModal, productId }) => {
 
     try {
       await updateProduct(updatedProduct).unwrap();
-      toast.success("Product updated");
       refetch();
-      navigate("/admin/dashboard/products");
       handleClose();
+      toast.success("Product updated");
     } catch (err) {
       toast.error("Failed to update product");
     }

@@ -7,8 +7,11 @@ import {
 import { toast } from "react-hot-toast";
 import Alert from "@mui/material/Alert";
 import CircularProgress from "@mui/material/CircularProgress";
+import { useSelector } from "react-redux";
 
 const UserEditModal = ({ closeModal, userId }) => {
+  const { userInfo } = useSelector((state) => state.auth);
+
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -132,21 +135,23 @@ const UserEditModal = ({ closeModal, userId }) => {
               />
             </div>
 
-            <div className="my-2 flex items-center">
-              <input
-                type="checkbox"
-                id="isadmin"
-                checked={isAdmin}
-                onChange={(e) => setIsAdmin(e.target.checked)}
-                className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-              />
-              <label
-                htmlFor="isadmin"
-                className="ml-2 block text-sm font-medium text-gray-700"
-              >
-                Is Admin
-              </label>
-            </div>
+            {userInfo.email === "admin@gmail.com" && (
+              <div className="my-2 flex items-center">
+                <input
+                  type="checkbox"
+                  id="isadmin"
+                  checked={isAdmin}
+                  onChange={(e) => setIsAdmin(e.target.checked)}
+                  className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                />
+                <label
+                  htmlFor="isadmin"
+                  className="ml-2 block text-sm font-medium text-gray-700"
+                >
+                  Is Admin
+                </label>
+              </div>
+            )}
 
             <button
               type="submit"
