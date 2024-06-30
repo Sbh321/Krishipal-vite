@@ -12,8 +12,13 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
 import { addToCart } from "../slices/cartSlice.js";
 import OnScrollCartIcon from "../components/OnScrollCartIcon";
+import { useEffect } from "react";
 
 const ProductScreen = () => {
+  useEffect(() => {
+    document.title = "Krishipal | Product Details";
+  }, []);
+
   const { id: productId } = useParams();
 
   const dispatch = useDispatch();

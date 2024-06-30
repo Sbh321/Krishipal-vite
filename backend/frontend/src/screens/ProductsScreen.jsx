@@ -9,6 +9,10 @@ import Alert from "@mui/material/Alert";
 import OnScrollCartIcon from "../components/OnScrollCartIcon";
 
 const ProductsScreen = () => {
+  useEffect(() => {
+    document.title = "All Products - Krishipal";
+  }, []);
+
   const dispatch = useDispatch();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);

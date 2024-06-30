@@ -10,6 +10,10 @@ import Alert from "@mui/material/Alert";
 import { toast } from "react-hot-toast";
 
 const ProfileScreen = () => {
+  useEffect(() => {
+    document.title = "Krishipal | Profile";
+  }, []);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

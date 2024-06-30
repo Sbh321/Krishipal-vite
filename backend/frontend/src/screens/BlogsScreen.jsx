@@ -1,10 +1,14 @@
 import BlogCard from "../components/BlogCard";
 import { useGetBlogsQuery } from "../slices/blogsApiSlice";
-
+import React, { useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
 
 const BlogsScreen = () => {
+  useEffect(() => {
+    document.title = "Krishipal | Explore Blogs";
+  }, []);
+
   const { data: blogs, isLoading, error } = useGetBlogsQuery();
 
   return (

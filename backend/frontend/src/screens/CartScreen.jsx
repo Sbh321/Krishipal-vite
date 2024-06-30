@@ -1,10 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import Alert from "@mui/material/Alert";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "../slices/cartSlice";
 import { FaTrash } from "react-icons/fa";
 
 const CartScreen = () => {
+  useEffect(() => {
+    document.title = "Krishipal | Cart";
+  }, []);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

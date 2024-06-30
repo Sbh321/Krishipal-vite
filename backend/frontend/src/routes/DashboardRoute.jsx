@@ -1,9 +1,13 @@
 import { Outlet, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useState } from "react"; // Import useState hook
+import { useState, useEffect } from "react"; // Import useState hook
 import Sidebar from "../dashboard/components/Sidebar";
 
 const DashboardRoute = () => {
+  useEffect(() => {
+    document.title = "Krishipal | Dashboard";
+  }, []);
+
   const { userInfo } = useSelector((state) => state.auth);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // State to manage sidebar visibility
 

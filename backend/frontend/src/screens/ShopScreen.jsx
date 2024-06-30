@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import Category from "../components/Category";
 import Hero from "../components/Hero";
 import FeatureSectionSeeds from "../components/FeatureSectionSeeds";
@@ -7,6 +8,9 @@ import Services from "../components/Services";
 import OnScrollCartIcon from "../components/OnScrollCartIcon";
 
 const ShopScreen = () => {
+  useEffect(() => {
+    document.title = "Krishipal | Shop";
+  }, []);
   return (
     <>
       <OnScrollCartIcon />

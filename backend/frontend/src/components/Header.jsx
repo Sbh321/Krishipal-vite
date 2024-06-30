@@ -116,7 +116,7 @@ const Header = () => {
                   <Link to={"/"}>
                     <div className="w-[60px]">
                       <img
-                        src="logo.png"
+                        src="/logo.png"
                         alt="Krishipal"
                         className="w-full ml-3 md:ml-0"
                       />

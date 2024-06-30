@@ -7,7 +7,7 @@ const Hero = () => {
       {/* <h3 className="font-bold text-2xl my-2">Best Selling</h3> */}
       <div className="grid xl:grid-cols-2 xl:grid-rows-2 gap-8">
         <div className="xl:col-span-2 xl:row-start-1 xl:row-end-[-1] relative">
-          <div className="w-full md:h-[600px] h-[400px] relative rounded-lg overflow-hidden bg-red-400">
+          <div className="w-full md:h-[600px] h-[400px] relative rounded-lg overflow-hidden">
             <img
               src="images/cab-seed.png"
               alt="img"
@@ -36,7 +36,7 @@ gap-4 px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer"
         </div>
 
         <div className="relative">
-          <div className="w-full h-[400px] relative rounded-lg overflow-hidden bg-yellow-400">
+          <div className="w-full h-[400px] relative rounded-lg overflow-hidden">
             <img
               className="h-full w-full object-cover rounded-lg"
               src="images/gourd-seed.png"
