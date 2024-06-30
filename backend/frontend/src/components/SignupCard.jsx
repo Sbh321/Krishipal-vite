@@ -25,7 +25,7 @@ const SignupCard = () => {
           </Link>
         </div>
         <img
-          src="images/farmer.png"
+          src="/images/farmer.png"
           alt="image"
           className="w-[31%] mr-1.5 object-cover hidden sm:block"
         />

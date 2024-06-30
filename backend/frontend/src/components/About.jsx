@@ -27,7 +27,7 @@ const About = () => {
           </Link>
         </div>
         <img
-          src="Tree.jpg"
+          src="/Tree.jpg"
           alt="img"
           className="w-[48%] object-cover rounded-xl h-[500px] hidden sm:block"
         />

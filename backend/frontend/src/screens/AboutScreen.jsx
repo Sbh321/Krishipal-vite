@@ -25,7 +25,7 @@ const AboutScreen = () => {
 
         <div className="md:w-1/2">
           <img
-            src="lady.png"
+            src="/lady.png"
             alt="Mission Image"
             className="w-full h-auto object-cover rounded-md"
           />
@@ -35,7 +35,7 @@ const AboutScreen = () => {
       <div className="mt-8 flex flex-col md:flex-row gap-8 items-center">
         <div className="md:w-1/2">
           <img
-            src="shed.png"
+            src="/shed.png"
             alt="Vision Image"
             className="w-full h-auto object-cover rounded-md"
           />

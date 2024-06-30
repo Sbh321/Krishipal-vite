@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="xl:col-span-2 xl:row-start-1 xl:row-end-[-1] relative">
           <div className="w-full md:h-[600px] h-[400px] relative rounded-lg overflow-hidden">
             <img
-              src="images/cab-seed.png"
+              src="/images/cab-seed.png"
               alt="img"
               className="w-full h-full object-cover rounded-lg"
             />
@@ -39,7 +39,7 @@ gap-4 px-4 py-2 text-[14px] sm:px-6 sm:py-3 cursor-pointer"
           <div className="w-full h-[400px] relative rounded-lg overflow-hidden">
             <img
               className="h-full w-full object-cover rounded-lg"
-              src="images/gourd-seed.png"
+              src="/images/gourd-seed.png"
               alt="img"
             />
 
