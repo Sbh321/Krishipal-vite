@@ -10,12 +10,14 @@ import {
   deleteProduct,
   createProductReview,
   getTopProducts,
+  getProductsByCategory,
 } from "../controllers/productController.js";
 import { protect, admin } from "../middleware/authMiddleware.js";
 import checkObjectId from "../middleware/checkObjectId.js";
 
 router.route("/latest").get(getLatestProducts);
 router.route("/").get(getProducts).post(protect, admin, createProduct);
+router.route("/category/:category").get(getProductsByCategory);
 router.route("/prod").get(getProd);
 router.get("/top", getTopProducts);
 router

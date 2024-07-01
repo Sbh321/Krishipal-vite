@@ -47,6 +47,28 @@ const getProducts = asyncHandler(async (req, res) => {
   res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
+// @desc    Fetch category wise products
+// @route   GET /api/products/category/:category
+// @access  Public
+
+const getProductsByCategory = asyncHandler(async (req, res) => {
+  const pageSize = 8;
+  const page = Number(req.query.pageNumber) || 1;
+  const category = req.params.category;
+
+  const keyword = req.query.keyword
+    ? { category: { $regex: req.query.keyword, $options: "i" } }
+    : { category };
+
+  const count = await Product.countDocuments({ ...keyword });
+
+  const products = await Product.find({ ...keyword })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
+});
+
 // @desc    Fetch single product
 // @route   GET /api/products/:id
 // @access  Public
@@ -194,6 +216,7 @@ export {
   getProd,
   getLatestProducts,
   getProducts,
+  getProductsByCategory,
   getProductById,
   createProduct,
   updateProduct,
