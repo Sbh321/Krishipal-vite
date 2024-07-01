@@ -50,6 +50,13 @@ const LoginScreen = () => {
       />
       <div className="flex flex-col justify-center items-center w-full lg:w-1/2">
         <div>
+          <div className="w-full">
+            <img
+              src="/logo.png"
+              alt="logo"
+              className="h-[60px] sm:h-[80px] md:h-[80px] lg:hidden m-auto mb-2"
+            />
+          </div>
           <div className="flex items-center justify-center lg:justify-start gap-3">
             <Link to="/">
               <div className="flex gap-1 border-green-600 px-2 pr-3 py-1 border-[3px] rounded-full hover:bg-green-600 hover:text-white transition duration-100 text-green-600">
@@ -89,9 +96,9 @@ const LoginScreen = () => {
               required
               autoComplete="login-password"
             />
-            <div className="text-blue-600 cursor-pointer hover:text-blue-400">
+            {/* <div className="text-blue-600 cursor-pointer hover:text-blue-400">
               Forgot your password?
-            </div>
+            </div> */}
 
             <button
               disabled={isLoading}
