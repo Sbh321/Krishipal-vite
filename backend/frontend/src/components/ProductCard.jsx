@@ -33,7 +33,7 @@ const ProductCard = ({ product }) => {
       </Link>
 
       <div className="space-y-2 relative p-4">
-        <div className="text-yellow-400 flex gap-[2px] text-[20px]">
+        <div className="text-yellow-400 sm:flex gap-[2px] text-[20px] hidden">
           <Rating
             value={product.rating}
             text={`${product.numReviews} reviews`}
@@ -44,7 +44,7 @@ const ProductCard = ({ product }) => {
           <h3 className="font-medium hover:underline">{product.name}</h3>
         </Link>
 
-        <h3 className="text-2xl font-medium text-red-600">
+        <h3 className="sm:text-2xl text-xl font-medium text-red-600">
           Rs {product.price}
         </h3>
 
@@ -54,12 +54,12 @@ const ProductCard = ({ product }) => {
             onAnimationEnd={() => setIsClicked(false)}
           >
             <button
-              className={`absolute top-2 right-2 ☐ bg-accent hover:bg-accentDark text-white text-[28px] w-[50px] h-[50px] rounded-full grid place-items-center cursor-pointer ${
+              className={`absolute right-2 top-12 sm:top-2 sm:right-2 ☐ bg-accent hover:bg-accentDark text-white text-[28px] w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] rounded-full grid place-items-center cursor-pointer ${
                 isClicked && "animate-swing"
               }`}
               onClick={addToCartHandler}
             >
-              <AiOutlineShopping />
+              <AiOutlineShopping className="text-[20px] sm:text-[30px]" />
             </button>
           </div>
         )}

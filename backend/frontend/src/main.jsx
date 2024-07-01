@@ -47,8 +47,6 @@ import PrivateRoute from "./routes/PrivateRoute.jsx";
 import AdminRoute from "./routes/AdminRoute.jsx";
 import DashboardRoute from "./routes/DashboardRoute.jsx";
 
-import ScrollToTop from "./components/ScrollToTop.jsx";
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -58,6 +56,14 @@ const router = createBrowserRouter(
         <Route path="/shop/products" element={<ProductsScreen />} />
         <Route
           path="/shop/products/page/:pageNumber"
+          element={<ProductsScreen />}
+        />
+        <Route
+          path="/shop/products/search/:keyword"
+          element={<ProductsScreen />}
+        />
+        <Route
+          path="/shop/products/search/:keyword/page/:pageNumber"
           element={<ProductsScreen />}
         />
         <Route path="/cart" element={<CartScreen />} />
