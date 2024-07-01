@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   useUpdateProductMutation,
   useGetProductDetailsQuery,
@@ -34,7 +33,19 @@ const ProductEditModal = ({ closeModal, productId }) => {
 
   const [categories, setCategories] = useState([]);
 
-  const { data: categoriesData } = useGetCategoriesQuery();
+  const {
+    data: categoriesData,
+    isLoading: categoryLoading,
+    refetch: categoriesRefetch,
+  } = useGetCategoriesQuery();
+
+  useEffect(() => {
+    if (categoriesData) {
+      setCategories(categoriesData);
+    } else {
+      categoriesRefetch();
+    }
+  }, [categoriesData, categoriesRefetch]);
 
   const {
     data: product,
@@ -48,8 +59,6 @@ const ProductEditModal = ({ closeModal, productId }) => {
 
   const [uploadProductImage, { isLoading: loadingUpload }] =
     useUploadProductImageMutation();
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (product) {
