@@ -54,7 +54,7 @@ const LoginScreen = () => {
             <img
               src="/logo.png"
               alt="logo"
-              className="h-[60px] sm:h-[80px] md:h-[80px] lg:hidden m-auto mb-2"
+              className="h-[60px] sm:h-[60px] md:h-[60px] lg:hidden m-auto mb-4"
             />
           </div>
           <div className="flex items-center justify-center lg:justify-start gap-3">
@@ -117,11 +117,11 @@ const LoginScreen = () => {
           </form>
         </div>
 
-        {/* oauth */}
         <div className="mt-4">
           <Oauth />
         </div>
-        <div className="mt-4">
+
+        <div className="mt-4 mb-20 sm:mb-0">
           Don't have an account?{" "}
           <span className="text-blue-600 cursor-pointer hover:text-blue-400">
             <Link to={"/register"}>Sign up here</Link>
