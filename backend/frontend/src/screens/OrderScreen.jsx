@@ -122,6 +122,7 @@ const OrderScreen = () => {
     if (confirmed) {
       await deleteOrder(orderId);
       toast.success("Order deleted successfully");
+      navigate("/");
     } else {
       toast.error("Order deletion canceled");
     }
@@ -211,7 +212,7 @@ const OrderScreen = () => {
                   >
                     <div className="flex items-center gap-2">
                       <img
-                        src={`http://localhost:10000${item.image}`}
+                        src={`${import.meta.env.VITE_APP_API_URL}${item.image}`}
                         alt={item.name}
                         className="w-16 h-16 rounded-md mr-4"
                       />

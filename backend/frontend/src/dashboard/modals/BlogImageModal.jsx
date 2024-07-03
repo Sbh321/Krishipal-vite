@@ -8,7 +8,7 @@ const BlogImageModal = ({ image, closeModal }) => {
       <div className="">
         <h2 className="text-2xl font-medium mb-4">Blog Image</h2>
         <img
-          src={`http://localhost:8000${image}`} // Replace with your actual image URL
+          src={`${import.meta.env.VITE_APP_API_URL}${image}`} // Replace with your actual image URL
           alt="Blog"
           className="w-full h-auto"
         />

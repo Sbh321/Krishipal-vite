@@ -104,7 +104,7 @@ const CategoryList = () => {
     category.name,
     <div key={category.image}>
       <img
-        src={`http://localhost:8000${category.image}`}
+        src={`${import.meta.env.VITE_APP_API_URL}${category.image}`}
         alt={category.name}
         className="w-10 h-10 rounded-full object-cover"
       />

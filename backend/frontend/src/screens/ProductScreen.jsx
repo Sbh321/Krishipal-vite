@@ -102,7 +102,7 @@ const ProductScreen = () => {
             <div className="md:flex md:gap-2 mt-[10px]">
               <div className="lg:w-3/6 lg:pr-[30px]">
                 <img
-                  src={`http://localhost:10000${product.image}`}
+                  src={`${import.meta.env.VITE_APP_API_URL}${product.image}`}
                   alt={product.name}
                   className="w-[100%]  h-[90%] object-cover rounded-xl"
                 />

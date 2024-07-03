@@ -12,7 +12,7 @@ const CategoryCard = ({ img, name, count }) => {
           </div>
           <img
             className="w-[50px] rounded-full h-[50px] object-cover"
-            src={`http://localhost:8000${img}`}
+            src={`${import.meta.env.VITE_APP_API_URL}${img}`}
             alt={name}
           />
         </div>

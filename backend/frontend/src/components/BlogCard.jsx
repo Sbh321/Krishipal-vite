@@ -9,7 +9,7 @@ const BlogCard = ({ img, title, id, date, comments }) => {
       <Link to={`/blogs/${id}`}>
         <img
           className="rounded-lg hover:scale-105 transition-transform object-cover w-full h-64"
-          src={`http://localhost:10000${img}`}
+          src={`${import.meta.env.VITE_APP_API_URL}${img}`}
           alt="post"
         />
         <div className="text-accent font-medium mt-2 flex justify-between">

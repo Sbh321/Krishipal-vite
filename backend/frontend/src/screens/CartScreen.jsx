@@ -49,7 +49,7 @@ const CartScreen = () => {
                 >
                   <div className="w-1/5 flex justify-between">
                     <img
-                      src={`http://localhost:10000${item.image}`}
+                      src={`${import.meta.env.VITE_APP_API_URL}${item.image}`}
                       alt="image"
                       className="w-full rounded-md"
                     />

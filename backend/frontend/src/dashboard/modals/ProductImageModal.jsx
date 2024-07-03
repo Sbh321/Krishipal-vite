@@ -8,7 +8,7 @@ const ProductImageModal = ({ image, closeModal }) => {
       <div className="">
         <h2 className="text-2xl font-medium mb-4">Product Image</h2>
         <img
-          src={`http://localhost:8000${image}`}
+          src={`${import.meta.env.VITE_APP_API_URL}${image}`}
           alt="Product"
           className="w-full h-auto"
         />
