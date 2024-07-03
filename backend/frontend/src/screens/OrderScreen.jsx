@@ -234,7 +234,7 @@ const OrderScreen = () => {
           </div>
         </div>
 
-        <div className="md:w-1/3 md:pl-4">
+        <div className="md:w-1/3 md:pl-4 pt-4 md:pt-0">
           <div className="bg-white rounded-lg shadow-md p-4 mb-4">
             <div className="flex justify-between">
               <h2 className="text-xl font-bold mb-2">Order Summary</h2>

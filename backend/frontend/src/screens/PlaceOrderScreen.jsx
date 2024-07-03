@@ -77,7 +77,7 @@ const PlaceOrderScreen = () => {
                   >
                     <div className="flex items-center gap-2">
                       <img
-                        src={`http://localhost:10000${item.image}`}
+                        src={`${import.meta.env.VITE_APP_API_URL}${item.image}`}
                         alt={item.name}
                         className="w-16 h-16 rounded-md mr-4"
                       />
@@ -97,7 +97,7 @@ const PlaceOrderScreen = () => {
             )}
           </div>
         </div>
-        <div className="md:w-1/3 pl-4">
+        <div className="md:w-1/3 md:pl-4 pt-4 md:pt-0">
           <div className="bg-white rounded-lg shadow-md p-4 mb-4">
             <h2 className="text-xl font-bold mb-4">Order Summary</h2>
             <div className="mb-2 flex justify-between">
