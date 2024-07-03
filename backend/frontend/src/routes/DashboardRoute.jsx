@@ -2,7 +2,6 @@ import { Outlet, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react"; // Import useState hook
 import Sidebar from "../dashboard/components/Sidebar";
-import { Toaster } from "react-hot-toast";
 
 const DashboardRoute = () => {
   useEffect(() => {
@@ -18,7 +17,6 @@ const DashboardRoute = () => {
 
   return userInfo && userInfo.isAdmin ? (
     <>
-      <Toaster />
       <div id="body" className="flex">
         {/* Responsive Sidebar */}
         <div

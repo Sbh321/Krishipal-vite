@@ -42,6 +42,7 @@ const RegisterScreen = () => {
         const res = await register({ name, email, password }).unwrap();
         dispatch(setCredentials({ ...res }));
         navigate(redirect);
+        toast.success("Registration successful");
       } catch (error) {
         toast.error(error?.data?.message || error.error);
         console.log("Error: ", error);

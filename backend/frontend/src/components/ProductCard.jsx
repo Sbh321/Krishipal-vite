@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
@@ -26,7 +26,7 @@ const ProductCard = ({ product }) => {
     <div className="border border-gray-200 hover:border-gray-300 hover:scale-105 transition-transform rounded-lg relative">
       <Link to={`/product/${product._id}`}>
         <img
-          src={`http://localhost:10000${product.image}`}
+          src={`${import.meta.env.VITE_APP_API_URL}${product.image}`}
           alt="img"
           className="w-full h-100 object-cover rounded-t-lg cursor-pointer"
         />

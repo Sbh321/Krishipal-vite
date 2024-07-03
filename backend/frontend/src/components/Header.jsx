@@ -126,7 +126,7 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="md:flex hidden md:ml-28">
+            <div className="md:flex hidden lg:ml-28">
               <div className="ml-auto flex items-center lg:gap-6">
                 <Link to="/">
                   <p className="hover:text-gray-500 px-3 py-2">Home</p>

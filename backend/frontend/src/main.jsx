@@ -47,6 +47,8 @@ import PrivateRoute from "./routes/PrivateRoute.jsx";
 import AdminRoute from "./routes/AdminRoute.jsx";
 import DashboardRoute from "./routes/DashboardRoute.jsx";
 
+import { Toaster } from "react-hot-toast";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -127,6 +129,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <PayPalScriptProvider deferLoading={true}>
         <RouterProvider router={router} />
+        <Toaster />
       </PayPalScriptProvider>
     </Provider>
   </React.StrictMode>
