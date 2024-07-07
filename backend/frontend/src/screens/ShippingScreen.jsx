@@ -42,6 +42,7 @@ const ShippingScreen = () => {
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               className="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:border-blue-500"
+              required
             />
           </div>
 
@@ -56,6 +57,7 @@ const ShippingScreen = () => {
               value={city}
               onChange={(e) => setCity(e.target.value)}
               className="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:border-blue-500"
+              required
             />
           </div>
 
@@ -70,6 +72,7 @@ const ShippingScreen = () => {
               value={postalCode}
               onChange={(e) => setPostalCode(e.target.value)}
               className="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:border-blue-500"
+              required
             />
           </div>
 
@@ -84,6 +87,7 @@ const ShippingScreen = () => {
               value={country}
               onChange={(e) => setCountry(e.target.value)}
               className="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:border-blue-500"
+              required
             />
           </div>
 

@@ -160,7 +160,7 @@ const OrderScreen = () => {
                 className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
                 role="alert"
               >
-                Delivered on {order.deliveredAt}
+                Delivered on {order.deliveredAt.substring(0, 10)}
               </div>
             ) : (
               <div
@@ -182,7 +182,7 @@ const OrderScreen = () => {
                 className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
                 role="alert"
               >
-                Paid on {order.paidAt}
+                Paid on {order.paidAt.substring(0, 10)}
               </div>
             ) : (
               <div
