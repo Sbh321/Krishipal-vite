@@ -42,7 +42,7 @@ To set up the Krishipal platform locally, follow these steps:
 2. **Install Dependencies:**
     ```sh
     npm install
-    cd client
+    cd frontend
     npm install
     cd ..
     ```
@@ -50,18 +50,20 @@ To set up the Krishipal platform locally, follow these steps:
 3. **Set Up Environment Variables:**
     Create a `.env` file in the root directory and add the following variables:
     ```sh
-    MONGO_URI=your_mongodb_uri
+    NODE_ENV
+    PORT
+    MONGO_URL=your_mongodb_uri
     JWT_SECRET=your_jwt_secret
     PAYPAL_CLIENT_ID=your_paypal_client_id
-    GOOGLE_CLIENT_ID=your_google_client_id
-    GOOGLE_CLIENT_SECRET=your_google_client_secret
+    PAYPAL_APP_SECRET=your_paypal_secret
+    PAYPAL_API_URL=paypal_api_url
+    VITE_FIREBASE_API_KEY=vite_firebase_key
+    VITE_APP_API_URL=your_frontend_url
     ```
 
 4. **Run the Application:**
     ```sh
-    npm run dev
-    cd client
-    npm run start
+    npm run dev (concurrently)
     ```
 
 ## Usage
