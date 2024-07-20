@@ -1,6 +1,6 @@
-import { Outlet, Navigate } from "react-router-dom";
+import { Outlet, Navigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useState, useEffect } from "react"; // Import useState hook
+import { useState, useEffect } from "react";
 import Sidebar from "../dashboard/components/Sidebar";
 
 const DashboardRoute = () => {
@@ -9,7 +9,12 @@ const DashboardRoute = () => {
   }, []);
 
   const { userInfo } = useSelector((state) => state.auth);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // State to manage sidebar visibility
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsSidebarOpen(false); // Reset sidebar when route changes
+  }, [location]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);

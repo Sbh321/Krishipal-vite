@@ -6,13 +6,15 @@ import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-hot-toast";
 import CircularProgress from "@mui/material/CircularProgress";
 import Oauth from "../components/Oauth";
-import { HiOutlineArrowCircleLeft } from "react-icons/hi";
+import { HiOutlineArrowCircleLeft, HiEye, HiEyeOff } from "react-icons/hi";
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -104,24 +106,44 @@ const RegisterScreen = () => {
               required
               autoComplete="new-email"
             />
-            <input
-              type="password"
-              placeholder="Password"
-              className="border w-full px-4 py-2"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              autoComplete="new-password"
-            />
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              className="border w-full px-4 py-2"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-              autoComplete="new-password-confirm"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="border w-full px-4 py-2"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                autoComplete="new-password"
+              />
+              <div
+                className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <HiEyeOff size={20} /> : <HiEye size={20} />}
+              </div>
+            </div>
+            <div className="relative">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                placeholder="Confirm Password"
+                className="border w-full px-4 py-2"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+                autoComplete="new-password-confirm"
+              />
+              <div
+                className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              >
+                {showConfirmPassword ? (
+                  <HiEyeOff size={20} />
+                ) : (
+                  <HiEye size={20} />
+                )}
+              </div>
+            </div>
 
             <button
               disabled={isLoading}

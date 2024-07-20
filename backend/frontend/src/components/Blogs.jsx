@@ -10,7 +10,7 @@ const Blogs = () => {
 
   return (
     <div className="sm:container mx-5 pt-16">
-      <h2 className="font-bold text-2xl">Latest News</h2>
+      <h2 className="font-bold text-2xl">Latest Blogs</h2>
       <p className="text-gray-500">
         Present posts in a best way to highlight interesting moments of your
         blog.

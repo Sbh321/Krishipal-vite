@@ -33,6 +33,34 @@ const authUser = asyncHandler(async (req, res) => {
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
+  // Check if password is at least 8 characters long
+  if (password.length < 8) {
+    res.status(400);
+    throw new Error("Password must be at least 8 characters long");
+  }
+
+  // Check if password contains at least one number
+  const numberRegex = /[0-9]/;
+  if (!numberRegex.test(password)) {
+    res.status(400);
+    throw new Error("Password must contain at least one number");
+  }
+
+  // Check if password contains at least one special character
+  const specialCharRegex = /[!@#$%^&*]/;
+  if (!specialCharRegex.test(password)) {
+    res.status(400);
+    throw new Error("Password must contain at least one special character");
+  }
+
+  // Check if password contains at least 2 letters
+  const letterRegex = /[a-zA-Z]/g;
+  const letters = password.match(letterRegex) || [];
+  if (letters.length < 2) {
+    res.status(400);
+    throw new Error("Password must contain at least 2 letters");
+  }
+
   const userExists = await User.findOne({ email });
 
   if (userExists) {
@@ -97,6 +125,34 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     user.email = req.body.email || user.email;
 
     if (req.body.password) {
+      // Check if password is at least 8 characters long
+      if (req.body.password.length < 8) {
+        res.status(400);
+        throw new Error("Password must be at least 8 characters long");
+      }
+
+      // Check if password contains at least one number
+      const numberRegex = /[0-9]/;
+      if (!numberRegex.test(req.body.password)) {
+        res.status(400);
+        throw new Error("Password must contain at least one number");
+      }
+
+      // Check if password contains at least one special character
+      const specialCharRegex = /[!@#$%^&*]/;
+      if (!specialCharRegex.test(req.body.password)) {
+        res.status(400);
+        throw new Error("Password must contain at least one special character");
+      }
+
+      // Check if password contains at least 2 letters
+      const letterRegex = /[a-zA-Z]/g;
+      const letters = req.body.password.match(letterRegex) || [];
+      if (letters.length < 2) {
+        res.status(400);
+        throw new Error("Password must contain at least 2 letters");
+      }
+
       user.password = req.body.password;
     }
 

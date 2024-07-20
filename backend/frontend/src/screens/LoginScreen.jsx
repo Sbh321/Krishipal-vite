@@ -6,11 +6,12 @@ import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-hot-toast";
 import CircularProgress from "@mui/material/CircularProgress";
 import Oauth from "../components/Oauth";
-import { HiOutlineArrowCircleLeft } from "react-icons/hi";
+import { HiOutlineArrowCircleLeft, HiEye, HiEyeOff } from "react-icons/hi";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -71,8 +72,6 @@ const LoginScreen = () => {
             <h2>Welcome Back</h2>
           </div>
 
-          {/* login form */}
-
           <form
             onSubmit={submitHandler}
             className="mt-8 w-[80%] lg:w-96 mx-auto space-y-4"
@@ -87,19 +86,27 @@ const LoginScreen = () => {
               required
               autoComplete="login-email"
             />
-            <input
-              type="password"
-              placeholder="Password"
-              className="border w-full px-4 py-2"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              autoComplete="login-password"
-            />
-            {/* <div className="text-blue-600 cursor-pointer hover:text-blue-400">
-              Forgot your password?
-            </div> */}
-
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="border w-full px-4 py-2"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                autoComplete="login-password"
+              />
+              <div
+                className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? (
+                  <HiEye size={20} className="cursor-pointer" />
+                ) : (
+                  <HiEyeOff size={20} className="cursor-pointer" />
+                )}
+              </div>
+            </div>
             <button
               disabled={isLoading}
               type="submit"

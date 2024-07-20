@@ -6,7 +6,6 @@ const FeatureCard = ({ title, icon }) => {
       </div>
       <div>
         <h3 className="text-accent font-medium text-xl">{title}</h3>
-        <p className="text-gray-500 text-[14px]">Lorem ipsum dolor.</p>
       </div>
     </div>
   );

@@ -28,8 +28,6 @@ function Sidebar() {
         </li>
       </Link>
       <ul className="sidebar-list mt-6">
-        {/* change a tags to link later on */}
-
         <Link to="/admin/dashboard">
           <li className="sidebar-list-item rounded-lg flex items-center">
             <BsGrid1X2Fill className="icon mr-6" /> <span>Dashboard</span>
