@@ -1,4 +1,4 @@
-# Krishipal: Agriculture Advisory Platform
+# Krishipal: Agriculture E-commerce Application
 
 ## Introduction
 Krishipal is an innovative web-based application designed to serve the agricultural community. The platform integrates essential features such as e-commerce for agricultural goods and an advisory system for best farming practices. It aims to provide a comprehensive solution for farmers to access vital information, streamline the procurement of agricultural supplies, and engage in a connected agricultural community.
